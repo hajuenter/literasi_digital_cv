@@ -1118,3 +1118,46 @@ a:focus {
 .footer a:hover {
   color: #222222;
 }
+.tech-icon {
+  width: 25px;
+  height: 25px;
+  object-fit: contain;
+  margin-bottom: 5px;
+}
+
+.tech-label {
+  font-size: 12px;
+}
+
+@media (max-width: 768px) {
+  .tech-icon {
+    width: 20px !important;
+    height: 20px !important;
+    margin-bottom: 6px !important;
+  }
+
+  .tech-label {
+    font-size: 12px !important;
+  }
+}
+
+/* Ukuran untuk mobile (biasanya di bawah 576px) */
+@media (max-width: 576px) {
+  .tech-icon {
+    width: 35px !important;
+    height: 35px !important;
+    margin-bottom: 4px !important;
+  }
+
+  .tech-label {
+    font-size: 11px !important;
+  }
+
+  /* Kurangi padding kolom agar lebih rapat */
+  .col-4,
+  .col-sm-3,
+  .col-md-2 {
+    padding-left: 4px !important;
+    padding-right: 4px !important;
+  }
+}

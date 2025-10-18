@@ -53,7 +53,7 @@
       }
     }
   });
-  
+
   // Typed Initiate
   if ($(".header h2").length == 1) {
     var typed_strings = $(".header .typed-text").text();
@@ -111,3 +111,14 @@
     return false;
   });
 })(jQuery);
+
+document.getElementById("hireMeBtn").addEventListener("click", function (e) {
+  e.preventDefault(); // mencegah perubahan URL
+  const target = document.querySelector("#contact");
+  if (target) {
+    target.scrollIntoView({
+      behavior: "smooth", // scroll halus
+      block: "start",
+    });
+  }
+});

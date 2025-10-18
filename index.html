@@ -26,49 +26,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 
     <style>
-        .tech-icon {
-            width: 25px;
-            height: 25px;
-            object-fit: contain;
-            margin-bottom: 5px;
-        }
 
-        .tech-label {
-            font-size: 12px;
-        }
-
-        @media (max-width: 768px) {
-            .tech-icon {
-                width: 15px;
-                height: 15px;
-                margin-bottom: 6px;
-            }
-
-            .tech-label {
-                font-size: 13px;
-            }
-        }
-
-        /* Ukuran untuk mobile (biasanya di bawah 576px) */
-        @media (max-width: 576px) {
-            .tech-icon {
-                width: 15px;
-                height: 15px;
-                margin-bottom: 4px;
-            }
-
-            .tech-label {
-                font-size: 12px;
-            }
-
-            /* Opsional: Mengurangi padding kolom */
-            .col-4,
-            .col-sm-3,
-            .col-md-2 {
-                padding-left: 5px;
-                padding-right: 5px;
-            }
-        }
     </style>
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
@@ -125,7 +83,7 @@
                     <p>I'm</p>
                     <h1>ACH. BAHRUL MA'ARIP</h1>
                     <h2></h2>
-                    <div class="typed-text">Web Developer, Front End Developer, Apps Developer, Back End Developer</div>
+                    <div class="typed-text">Web Developer, Mobile Developer, AI Engineer</div>
                 </div>
             </div>
             <!-- Header End -->
@@ -133,9 +91,11 @@
             <!-- Large Button Start -->
             <div class="large-btn">
                 <div class="content-inner">
-                    <a class="btn" target="_blank" href="https://pdfhost.ing/docs/6d0f008e"><i
+                    <a class="btn" target="_blank" href="https://pdfhost.ing/docs/86b4d738"><i
                             class="fa fa-download"></i>Resume</a>
-                    <a class="btn" href="#contact"><i class="fa fa-hands-helping"></i>Hire Me</a>
+                    <a class="btn" href="#contact" id="hireMeBtn">
+                        <i class="fa fa-hands-helping"></i> Hire Me
+                    </a>
                 </div>
             </div>
             <!-- Large Button End -->
@@ -229,6 +189,56 @@
                                     <img src="https://cdn.simpleicons.org/xampp/FB7A24" class="tech-icon" alt="XAMPP">
                                     <div class="tech-label">XAMPP</div>
                                 </div>
+                                <div class="col-4 col-sm-3 col-md-2 mb-3 text-center">
+                                    <img src="https://cdn.simpleicons.org/python/3776AB" class="tech-icon" alt="Python">
+                                    <div class="tech-label">Python</div>
+                                </div>
+
+                                <div class="col-4 col-sm-3 col-md-2 mb-3 text-center">
+                                    <img src="https://cdn.simpleicons.org/tensorflow/FF6F00" class="tech-icon"
+                                        alt="Machine Learning">
+                                    <div class="tech-label">Machine Learning</div>
+                                </div>
+
+                                <div class="col-4 col-sm-3 col-md-2 mb-3 text-center">
+                                    <img src="https://cdn.simpleicons.org/pytorch/EE4C2C" class="tech-icon"
+                                        alt="Deep Learning">
+                                    <div class="tech-label">Deep Learning</div>
+                                </div>
+
+                                <div class="col-4 col-sm-3 col-md-2 mb-3 text-center">
+                                    <img src="https://cdn.simpleicons.org/openai/412991" class="tech-icon"
+                                        alt="AI Engineering">
+                                    <div class="tech-label">AI</div>
+                                </div>
+                                <div class="col-4 col-sm-3 col-md-2 mb-3 text-center">
+                                    <img src="https://cdn.simpleicons.org/react/61DAFB" class="tech-icon" alt="React">
+                                    <div class="tech-label">React</div>
+                                </div>
+                                <div class="col-4 col-sm-3 col-md-2 mb-3 text-center">
+                                    <img src="https://cdn.simpleicons.org/vite/646CFF" class="tech-icon" alt="Vite">
+                                    <div class="tech-label">Vite</div>
+                                </div>
+                                <div class="col-4 col-sm-3 col-md-2 mb-3 text-center">
+                                    <img src="https://cdn.simpleicons.org/express/000000" class="tech-icon"
+                                        alt="Express.js">
+                                    <div class="tech-label">Express.js</div>
+                                </div>
+                                <div class="col-4 col-sm-3 col-md-2 mb-3 text-center">
+                                    <img src="https://cdn.simpleicons.org/nodedotjs/339933" class="tech-icon"
+                                        alt="Node.js">
+                                    <div class="tech-label">Node.js</div>
+                                </div>
+                                <div class="col-4 col-sm-3 col-md-2 mb-3 text-center">
+                                    <img src="https://cdn.simpleicons.org/mongodb/47A248" class="tech-icon"
+                                        alt="MongoDB">
+                                    <div class="tech-label">MongoDB</div>
+                                </div>
+                                <div class="col-4 col-sm-3 col-md-2 mb-3 text-center">
+                                    <img src="https://cdn.simpleicons.org/postman/FF6C37" class="tech-icon"
+                                        alt="Postman">
+                                    <div class="tech-label">Postman</div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -301,7 +311,11 @@
                                     for both front-end and back-end development, ensuring a smooth user experience and
                                     dynamic content updates.</p>
                                 <a href="https://nganjukvisit.pbltifnganjuk.com/" target="_blank" class="btn btn-link">
-                                    <i class="fas fa-link"></i> Click here to view the website
+                                    <i class="fas fa-globe"></i> View Website
+                                </a>
+                                <a href="https://github.com/hajuenter/web_nganjukvisit" target="_blank"
+                                    class="btn btn-link">
+                                    <i class="fab fa-github"></i> View Repository
                                 </a>
                             </div>
                         </div>
@@ -315,13 +329,17 @@
                                     app development, including UI/UX design, integration with payment systems, ensuring
                                     seamless experience for ticket
                                     bookings.</p>
+                                <a href="https://nganjukvisit.pbltifnganjuk.com/download/NganjukVisit.apk"
+                                    target="_blank" class="btn btn-link">
+                                    <i class="fas fa-download"></i> Download App
+                                </a>
                                 <a href="https://github.com/hajuenter/mobile_nganjukvisit" target="_blank"
                                     class="btn btn-link">
-                                    <i class="fas fa-link"></i> Click here to view the GitHub
-                                    repository
+                                    <i class="fab fa-github"></i> View Repository
                                 </a>
                             </div>
                         </div>
+
                         <div class="col-md-6">
                             <div class="exp-col">
                                 <h3>Nganjuk Mase Website</h3>
@@ -332,11 +350,15 @@
                                     Settlement Areas, and Land Affairs in Nganjuk Regency. The website also manages CPB
                                     data for potential
                                     housing aid recipients, streamlining data collection and related services.</p>
-                                <a href="https://github.com/hajuenter" target="_blank" class="btn btn-link">
-                                    <i class="fas fa-link"></i> Click here to view the GitHub repository
+                                <a href="https://nganjukmase.pbltifnganjuk.com/" target="_blank" class="btn btn-link">
+                                    <i class="fas fa-globe"></i> View Website
+                                </a>
+                                <a href="https://github.com/hajuenter/web_BuildUp" target="_blank" class="btn btn-link">
+                                    <i class="fab fa-github"></i> View Repository
                                 </a>
                             </div>
                         </div>
+
                         <div class="col-md-6">
                             <div class="exp-col">
                                 <h3>Nganjuk Mase Mobile App</h3>
@@ -347,9 +369,13 @@
                                     Housing to verify uninhabitable house data from registered CPB data. The app
                                     integrates seamlessly with the
                                     Nganjuk Mase website for efficient data management and verification tasks.</p>
-                                <a href="https://github.com/hajuenter" target="_blank" class="btn btn-link">
-                                    <i class="fas fa-link"></i> Click here to view the GitHub
-                                    repository
+                                <a href="https://github.com/hajuenter/mobile_BuildUp/up/apk/NganjukMase.apk"
+                                    target="_blank" class="btn btn-link">
+                                    <i class="fas fa-download"></i> Download App
+                                </a>
+                                <a href="https://github.com/hajuenter/mobile_BuildUp" target="_blank"
+                                    class="btn btn-link">
+                                    <i class="fab fa-github"></i> View Repository
                                 </a>
                             </div>
                         </div>
@@ -388,6 +414,77 @@
                                 </a>
                             </div>
                         </div>
+                        <!-- Belajar Dasar AI -->
+                        <div class="col-md-6">
+                            <div class="exp-col">
+                                <h3>Belajar Dasar Artificial Intelligence</h3>
+                                <h4>Dicoding Indonesia</h4>
+                                <h5>AI Fundamentals Course</h5>
+                                <p>
+                                    Completed the "Belajar Dasar Artificial Intelligence" course from Dicoding
+                                    Indonesia.
+                                    Learned the basic concepts of AI, including problem solving using search algorithms,
+                                    logic-based reasoning, and machine learning fundamentals.
+                                </p>
+                                <a href="https://pdfhost.ing/docs/4cd2a8d7" target="_blank" class="btn btn-link">
+                                    <i class="fas fa-award"></i>
+                                    Click here to view the Certificate
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Belajar Dasar Python -->
+                        <div class="col-md-6">
+                            <div class="exp-col">
+                                <h3>Belajar Dasar Pemrograman Python</h3>
+                                <h4>Dicoding Indonesia</h4>
+                                <h5>Python Programming Course</h5>
+                                <p>
+                                    Completed the "Belajar Dasar Pemrograman Python" course from Dicoding Indonesia.
+                                    Gained fundamental skills in Python programming, data types, functions, loops,
+                                    and basic data structure manipulation.
+                                </p>
+                                <a href="https://pdfhost.ing/docs/2c2ff59a" target="_blank" class="btn btn-link">
+                                    <i class="fas fa-award"></i>
+                                    Click here to view the Certificate
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Belajar Dasar Machine Learning -->
+                        <div class="col-md-6">
+                            <div class="exp-col">
+                                <h3>Belajar Dasar Machine Learning</h3>
+                                <h4>Dicoding Indonesia</h4>
+                                <h5>Machine Learning Foundations Course</h5>
+                                <p>
+                                    Completed the "Belajar Dasar Machine Learning" course from Dicoding Indonesia.
+                                    Learned key ML concepts such as supervised and unsupervised learning,
+                                    data preprocessing, model training, and evaluation using Python.
+                                </p>
+                                <a href="https://pdfhost.ing/docs/02785ce6" target="_blank" class="btn btn-link">
+                                    <i class="fas fa-award"></i>
+                                    Click here to view the Certificate
+                                </a>
+                            </div>
+                        </div>
+                        <!-- Juara 1 Project Kolaborasi Korea KNU -->
+                        <div class="col-md-6">
+                            <div class="exp-col">
+                                <h3>1st Place - KNU Global Mobility Project</h3>
+                                <h4>Kyungpook National University (KNU) and POLITEKNIK NEGERI JEMBER</h4>
+                                <h5>AI & IoT Developer</h5>
+                                <p>
+                                    Won 1st place in an international collaboration project with KNU students.
+                                    Built an AI system for fight and car crash detection integrated with CCTV and IoT
+                                    devices.
+                                </p>
+                                <a href="https://pdfhost.ing/docs/" target="_blank" class="btn btn-link">
+                                    <i class="fas fa-award"></i>
+                                    Click here to view the Certificate
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -403,19 +500,9 @@
                         <div class="col-md-6">
                             <div class="srv-col">
                                 <i class="fa fa-desktop"></i>
-                                <h3>Web Design</h3>
-                                <p>Create modern, responsive, and user-friendly web interfaces with a focus on visual
-                                    clarity and user
-                                    experience across all devices.</p>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="srv-col">
-                                <i class="fa fa-laptop"></i>
-                                <h3>Web Development</h3>
-                                <p>Build robust and scalable web applications with clean code, strong back-end
-                                    architecture, and secure data
-                                    handling features.</p>
+                                <h3>AI Engineering</h3>
+                                <p>Design and implement intelligent systems powered by machine learning and deep
+                                    learning to solve real-world problems.</p>
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -452,7 +539,8 @@
                             <ul id="portfolio-flters">
                                 <li data-filter="*" class="filter-active">All</li>
                                 <li data-filter=".web-des">Design</li>
-                                <li data-filter=".web-dev">Development</li>
+                                <li data-filter=".web-dev">Website</li>
+                                <li data-filter=".mob-dev">Mobile App</li>
                             </ul>
                         </div>
                     </div>
@@ -484,6 +572,20 @@
                                     <a class="portfolio-title" target="_blank"
                                         href="https://nganjukvisit.pbltifnganjuk.com/">Nganjuk
                                         Visit<span>Web Development</span></a>
+                                </figure>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 portfolio-item web-dev">
+                            <div class="portfolio-wrap">
+                                <figure>
+                                    <img src="img/sss3.png" class="img-fluid" alt="">
+                                    <a href="img/sss3.png" class="link-preview" data-lightbox="portfolio"
+                                        data-title="Project Name" title="Preview"><i class="fa fa-eye"></i></a>
+                                    <a href="https://nganjukmase.pbltifnganjuk.com/" target="_blank"
+                                        class="link-details" title="More Details"><i class="fa fa-link"></i></a>
+                                    <a class="portfolio-title" target="_blank"
+                                        href="https://nganjukmase.pbltifnganjuk.com/">Nganjuk
+                                        Mase<span>Web Development</span></a>
                                 </figure>
                             </div>
                         </div>
@@ -539,6 +641,28 @@
                                     <div class="review-name">
                                         <h3>Housing, Settlement, and Land Department of Nganjuk Regency</h3>
                                         <p>Government Partner</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="review-slider-item">
+                                <div class="review-text">
+                                    <p>
+                                        The Smart City Project, a collaboration between Indonesian and KNU students,
+                                        developed an AI and IoT-based system capable of detecting fights and car crashes
+                                        through CCTV integration.
+                                        The solution aimed to support public safety monitoring and emergency response in
+                                        urban environments.
+                                        The collaboration showcased strong innovation, teamwork, and real-world
+                                        application of smart surveillance technology.
+                                    </p>
+                                </div>
+                                <div class="review-img">
+                                    <img src="img/pre4.jpg" alt="Image">
+                                    <div class="review-name">
+                                        <h3>Smart City Project</h3>
+                                        <p>POLIJE and Kyungpook National University Collaboration</p>
                                     </div>
                                 </div>
                             </div>
