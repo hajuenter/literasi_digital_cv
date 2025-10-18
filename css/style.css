@@ -1128,6 +1128,48 @@ a:focus {
 .tech-label {
   font-size: 12px;
 }
+/* === PANAH SELALU MUNCUL KHUSUS UNTUK MOBILE APP === */
+.lb-nav a.lb-prev,
+.lb-nav a.lb-next {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transition: none !important;
+  filter: brightness(10); /* biar tetap putih jelas */
+  transform: scale(0.9); /* lebih kecil */
+}
+
+/* Geser panah keluar area gambar */
+.lb-nav a.lb-prev {
+  left: -60px !important; /* semakin negatif = semakin ke luar kiri */
+}
+
+.lb-nav a.lb-next {
+  right: -60px !important; /* semakin negatif = semakin ke luar kanan */
+}
+
+/* Responsif biar gak kepotong di HP */
+@media (max-width: 768px) {
+  .lb-nav a.lb-prev {
+    left: -30px !important;
+  }
+  .lb-nav a.lb-next {
+    right: -30px !important;
+  }
+  .lb-nav a.lb-prev,
+  .lb-nav a.lb-next {
+    transform: scale(0.8); /* sedikit lebih kecil di mobile */
+  }
+}
+
+/* Supaya panah tetap terlihat di layar kecil */
+@media (max-width: 768px) {
+  .lb-nav a.lb-prev {
+    left: 10px !important;
+  }
+  .lb-nav a.lb-next {
+    right: 10px !important;
+  }
+}
 
 @media (max-width: 768px) {
   .tech-icon {
