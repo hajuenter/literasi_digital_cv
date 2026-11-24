@@ -204,11 +204,20 @@ html[data-theme="dark"] .nb-section-dark .nb-icon-btn:hover {
   transition: background 0.12s ease, color 0.12s ease, border-color 0.12s ease;
 }
 
-.nav-link:hover,
 .nav-link[aria-current="true"] {
   border-color: var(--color-ink);
   background: var(--color-ink);
   color: var(--color-paper);
+}
+
+/* Hover hanya untuk perangkat dengan mouse; di layar sentuh :hover bisa
+   nyangkut setelah tap sehingga tampak seperti dua menu aktif sekaligus. */
+@media (hover: hover) and (pointer: fine) {
+  .nav-link:hover:not([aria-current="true"]) {
+    border-color: var(--color-ink);
+    background: var(--color-ink);
+    color: var(--color-paper);
+  }
 }
 
 .nb-tech {
