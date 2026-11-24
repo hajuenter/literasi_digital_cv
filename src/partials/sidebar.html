@@ -1,0 +1,56 @@
+<aside
+    class="sidebar fixed inset-x-0 top-0 z-50 border-b-2 border-ink bg-paper lg:inset-y-0 lg:right-auto lg:w-[280px] lg:border-b-0 lg:border-r-2 lg:flex lg:flex-col">
+    <div class="flex shrink-0 items-center justify-between px-5 py-4 lg:block lg:px-6 lg:py-7">
+        <div>
+            <p class="font-mono text-[10px] uppercase tracking-[0.25em] text-steel"><span
+                    data-i18n="nav.label">Portfolio / 2026</span></p>
+            <a href="#header" class="mt-1 block text-lg font-bold uppercase leading-none tracking-tight lg:text-xl">ACH.
+                BAHRUL MA'ARIP</a>
+        </div>
+        <button id="navToggle" type="button" aria-label="Toggle navigation" data-i18n-aria="aria.toggleNav"
+            aria-expanded="false" class="nb-icon-btn lg:hidden">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+    </div>
+
+    <nav id="navMenu"
+        class="hidden border-t-2 border-ink bg-paper px-5 py-4 lg:flex lg:min-h-0 lg:flex-1 lg:flex-col lg:overflow-y-auto lg:border-t-0 lg:px-6 lg:py-0">
+        <ul class="flex flex-col gap-1">
+            <li><a class="nav-link" href="#header"><span><span data-i18n="nav.home">Home</span></span><i
+                        class="fa-solid fa-house"></i></a></li>
+            <li><a class="nav-link" href="#about"><span><span data-i18n="nav.about">About</span></span><i
+                        class="fa-solid fa-address-card"></i></a></li>
+            <li><a class="nav-link" href="#experience"><span><span data-i18n="exp.title">Experience</span></span><i
+                        class="fa-solid fa-star"></i></a></li>
+            <li><a class="nav-link" href="#service"><span><span data-i18n="svc.title">Service</span></span><i
+                        class="fa-solid fa-list-check"></i></a></li>
+            <li><a class="nav-link" href="#portfolio"><span><span data-i18n="pf.title">Portfolio</span></span><i
+                        class="fa-solid fa-folder-open"></i></a></li>
+            <li><a class="nav-link" href="#contact"><span><span data-i18n="ct.title">Contact</span></span><i
+                        class="fa-solid fa-envelope"></i></a></li>
+        </ul>
+        <div class="mt-5 flex items-center gap-2 border-t-2 border-ink pt-5 lg:mt-6">
+            <span class="font-mono text-[10px] uppercase tracking-[0.2em] text-steel">ID / EN</span>
+            <button type="button" data-lang="id" aria-pressed="true"
+                class="choice-btn nb-chip cursor-pointer">ID</button>
+            <button type="button" data-lang="en" aria-pressed="false"
+                class="choice-btn nb-chip cursor-pointer">EN</button>
+        </div>
+        <div class="mt-4 flex items-center pb-3 gap-2 border-t-2 border-ink pt-4 lg:mt-5">
+            <span class="font-mono text-[10px] uppercase tracking-[0.2em] text-steel" data-i18n="ui.theme">Theme</span>
+            <button type="button" data-theme-choice="light" aria-pressed="true" aria-label="Light theme"
+                data-i18n-aria="theme.light" class="choice-btn nb-icon-btn"><i class="fa-solid fa-sun"></i></button>
+            <button type="button" data-theme-choice="dark" aria-pressed="false" aria-label="Dark theme"
+                data-i18n-aria="theme.dark" class="choice-btn nb-icon-btn"><i class="fa-solid fa-moon"></i></button>
+        </div>
+    </nav>
+
+    <div class="hidden shrink-0 items-center gap-2 border-t-2 border-ink px-6 py-5 lg:mt-auto lg:flex">
+        <a href="https://x.com/shusui_songolas" target="_blank" aria-label="Twitter" class="nb-icon-btn"><i
+                class="fa-brands fa-twitter"></i></a>
+        <a href="https://web.facebook.com/people/Ach-Bahrul/pfbid0kiycxSA5eJ676oedDRVayoz6BWVnFkfkDKEdjeaDYk2Jur2FWDFy1Z63QKjAyUqVl/"
+            target="_blank" aria-label="Facebook" class="nb-icon-btn"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://www.linkedin.com/in/ach-bahrul-ma-arip-a1a14b313/" target="_blank" aria-label="LinkedIn"
+            class="nb-icon-btn"><i class="fa-brands fa-linkedin-in"></i></a>
+    </div>
+</aside>

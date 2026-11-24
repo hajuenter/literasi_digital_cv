@@ -1,124 +1,215 @@
-(function ($) {
+(function () {
   "use strict";
-  $(document).on("click", function (event) {
-    var clickover = $(event.target);
-    var _opened = $(".navbar-collapse").hasClass("show");
 
-    if (
-      _opened === true &&
-      !clickover.hasClass("navbar-toggler") &&
-      !clickover.closest(".navbar-collapse").length
-    ) {
-      $(".navbar-collapse").collapse("hide");
-    }
-  });
+  /* ---------- Mobile navigation ---------- */
+  const navToggle = document.getElementById("navToggle");
+  const navMenu = document.getElementById("navMenu");
+  const navLinks = Array.from(document.querySelectorAll(".nav-link"));
 
-  // Smooth scrolling on the navbar links
-  $(".navbar-nav a").on("click", function (event) {
-    if (this.hash !== "") {
-      event.preventDefault();
+  if (navToggle && navMenu) {
+    navToggle.addEventListener("click", function () {
+      const willOpen = navMenu.classList.contains("hidden");
+      navMenu.classList.toggle("hidden", !willOpen);
+      navToggle.setAttribute("aria-expanded", String(willOpen));
+    });
 
-      var target = $(this.hash);
-      var navbarOpen = $(".navbar-collapse").hasClass("show");
-
-      // Pertama tutup navbar jika terbuka
-      if (navbarOpen) {
-        $(".navbar-collapse").collapse("hide");
-
-        // Beri sedikit waktu untuk transition navbar menutup
-        setTimeout(function () {
-          // Kemudian lakukan scroll dengan offset yang tepat
-          $("html, body").animate(
-            {
-              scrollTop: target.offset().top - 30,
-            },
-            1500,
-            "easeInOutExpo"
-          );
-        }, 300); // Waktu tunggu untuk transisi navbar
-      } else {
-        // Jika navbar tidak terbuka, langsung scroll
-        $("html, body").animate(
-          {
-            scrollTop: target.offset().top - 30,
-          },
-          1500,
-          "easeInOutExpo"
-        );
-      }
-
-      if ($(this).parents(".navbar-nav").length) {
-        $(".navbar-nav .active").removeClass("active");
-        $(this).closest("a").addClass("active");
-      }
-    }
-  });
-
-  // Typed Initiate
-  if ($(".header h2").length == 1) {
-    var typed_strings = $(".header .typed-text").text();
-    var typed = new Typed(".header h2", {
-      strings: typed_strings.split(", "),
-      typeSpeed: 100,
-      backSpeed: 20,
-      smartBackspace: false,
-      loop: true,
+    navLinks.forEach(function (link) {
+      link.addEventListener("click", function () {
+        if (window.innerWidth < 1024) {
+          navMenu.classList.add("hidden");
+          navToggle.setAttribute("aria-expanded", "false");
+        }
+      });
     });
   }
 
-  // Skills
-  $(".skills").waypoint(
+  const hireMeBtn = document.getElementById("hireMeBtn");
+  if (hireMeBtn && navMenu && navToggle) {
+    hireMeBtn.addEventListener("click", function () {
+      if (window.innerWidth < 1024) {
+        navMenu.classList.add("hidden");
+        navToggle.setAttribute("aria-expanded", "false");
+      }
+    });
+  }
+
+  /* ---------- Active section in navbar ---------- */
+  const sections = navLinks
+    .map(function (link) {
+      return document.querySelector(link.getAttribute("href"));
+    })
+    .filter(Boolean);
+
+  let scrollQueued = false;
+  window.addEventListener(
+    "scroll",
     function () {
-      $(".progress .progress-bar").each(function () {
-        $(this).css("width", $(this).attr("aria-valuenow") + "%");
+      if (scrollQueued) return;
+      scrollQueued = true;
+      requestAnimationFrame(function () {
+        const marker = window.scrollY + 140;
+        let current = sections[0];
+        sections.forEach(function (section) {
+          if (section.offsetTop <= marker) current = section;
+        });
+        navLinks.forEach(function (link) {
+          const active = current && link.getAttribute("href") === "#" + current.id;
+          if (active) link.setAttribute("aria-current", "true");
+          else link.removeAttribute("aria-current");
+        });
+        scrollQueued = false;
       });
     },
-    { offset: "80%" }
+    { passive: true }
   );
+  window.dispatchEvent(new Event("scroll"));
 
-  // Porfolio isotope and filter
-  var portfolioIsotope = $(".portfolio-container").isotope({
-    itemSelector: ".portfolio-item",
-    layoutMode: "fitRows",
-  });
+  /* ---------- Typed hero text ---------- */
+  const typedText = document.getElementById("typedText");
+  if (typedText) {
+    let words = [];
+    let wordIndex = 0;
+    let charIndex = 0;
+    let deleting = false;
+    let generation = 0;
 
-  $("#portfolio-flters li").on("click", function () {
-    $("#portfolio-flters li").removeClass("filter-active");
-    $(this).addClass("filter-active");
-
-    portfolioIsotope.isotope({ filter: $(this).data("filter") });
-  });
-
-  // Review slider
-  $(".review-slider").slick({
-    autoplay: true,
-    dots: false,
-    infinite: true,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-  });
-
-  // Back to top button
-  $(window).scroll(function () {
-    if ($(this).scrollTop() > 100) {
-      $(".back-to-top").fadeIn("slow");
-    } else {
-      $(".back-to-top").fadeOut("slow");
+    function readWords() {
+      return (typedText.dataset.typed || "")
+        .split(",")
+        .map(function (word) {
+          return word.trim();
+        })
+        .filter(Boolean);
     }
-  });
-  $(".back-to-top").click(function () {
-    $("html, body").animate({ scrollTop: 0 }, 1500, "easeInOutExpo");
-    return false;
-  });
-})(jQuery);
 
-document.getElementById("hireMeBtn").addEventListener("click", function (e) {
-  e.preventDefault(); // mencegah perubahan URL
-  const target = document.querySelector("#contact");
-  if (target) {
-    target.scrollIntoView({
-      behavior: "smooth", // scroll halus
-      block: "start",
+    function tick(gen) {
+      if (gen !== generation) return;
+      const word = words[wordIndex];
+      charIndex += deleting ? -1 : 1;
+      typedText.textContent = word.slice(0, charIndex);
+
+      let delay = deleting ? 45 : 90;
+      if (!deleting && charIndex === word.length) {
+        deleting = true;
+        delay = 1500;
+      } else if (deleting && charIndex === 0) {
+        deleting = false;
+        wordIndex = (wordIndex + 1) % words.length;
+        delay = 350;
+      }
+      window.setTimeout(function () {
+        tick(gen);
+      }, delay);
+    }
+
+    function restartTyped() {
+      generation += 1;
+      words = readWords();
+      wordIndex = 0;
+      charIndex = 0;
+      deleting = false;
+      typedText.textContent = "";
+      if (words.length) tick(generation);
+    }
+
+    restartTyped();
+    window.addEventListener("portfolio:languagechange", restartTyped);
+  }
+
+  /* ---------- Portfolio filter ---------- */
+  const filterButtons = Array.from(document.querySelectorAll("#portfolioFilters [data-filter]"));
+  const portfolioItems = Array.from(document.querySelectorAll(".portfolio-item"));
+
+  filterButtons.forEach(function (button) {
+    button.addEventListener("click", function () {
+      const filter = button.dataset.filter;
+      filterButtons.forEach(function (other) {
+        other.setAttribute("aria-pressed", String(other === button));
+      });
+      portfolioItems.forEach(function (item) {
+        item.classList.toggle("hidden", filter !== "all" && item.dataset.category !== filter);
+      });
+    });
+  });
+
+  /* ---------- Lightbox ---------- */
+  const lightbox = document.getElementById("lightbox");
+  if (lightbox) {
+    const lightboxImage = document.getElementById("lightboxImage");
+    const lightboxTitle = document.getElementById("lightboxTitle");
+    const lightboxCounter = document.getElementById("lightboxCounter");
+    const closeButton = document.getElementById("lightboxClose");
+    const prevButton = document.getElementById("lightboxPrev");
+    const nextButton = document.getElementById("lightboxNext");
+    let gallery = [];
+    let currentIndex = 0;
+
+    function renderImage() {
+      lightboxImage.src = gallery[currentIndex];
+      lightboxImage.alt = lightboxTitle.textContent || "Project preview";
+      lightboxCounter.textContent =
+        String(currentIndex + 1).padStart(2, "0") + " / " + String(gallery.length).padStart(2, "0");
+    }
+
+    document.querySelectorAll("[data-preview]").forEach(function (button) {
+      button.addEventListener("click", function () {
+        gallery = (button.dataset.gallery || button.dataset.preview).split("|").filter(Boolean);
+        const start = gallery.indexOf(button.dataset.preview);
+        currentIndex = start >= 0 ? start : 0;
+        lightboxTitle.textContent = button.dataset.title || "";
+        renderImage();
+        lightbox.showModal();
+      });
+    });
+
+    closeButton.addEventListener("click", function () {
+      lightbox.close();
+    });
+    lightbox.addEventListener("click", function (event) {
+      if (event.target === lightbox) lightbox.close();
+    });
+    prevButton.addEventListener("click", function () {
+      currentIndex = (currentIndex - 1 + gallery.length) % gallery.length;
+      renderImage();
+    });
+    nextButton.addEventListener("click", function () {
+      currentIndex = (currentIndex + 1) % gallery.length;
+      renderImage();
     });
   }
-});
+
+  /* ---------- Review slider ---------- */
+  const reviewTrack = document.getElementById("reviewTrack");
+  const reviewPrev = document.getElementById("reviewPrev");
+  const reviewNext = document.getElementById("reviewNext");
+
+  if (reviewTrack && reviewPrev && reviewNext) {
+    function scrollReviews(direction) {
+      const card = reviewTrack.querySelector("article");
+      const distance = card ? card.getBoundingClientRect().width + 24 : reviewTrack.clientWidth;
+      reviewTrack.scrollBy({ left: direction * distance, behavior: "smooth" });
+    }
+    reviewPrev.addEventListener("click", function () {
+      scrollReviews(-1);
+    });
+    reviewNext.addEventListener("click", function () {
+      scrollReviews(1);
+    });
+  }
+
+  /* ---------- Back to top ---------- */
+  const backToTop = document.getElementById("backToTop");
+  if (backToTop) {
+    window.addEventListener(
+      "scroll",
+      function () {
+        backToTop.classList.toggle("hidden", window.scrollY < 200);
+      },
+      { passive: true }
+    );
+    backToTop.addEventListener("click", function (event) {
+      event.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  }
+})();

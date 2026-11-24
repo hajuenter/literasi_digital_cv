@@ -1,0 +1,44 @@
+<!-- @include partials/head.html -->
+
+<body class="bg-paper text-ink antialiased">
+    <div class="min-h-screen pt-[72px] lg:pl-[280px] lg:pt-0">
+        <!-- @include partials/sidebar.html -->
+        <main class="min-w-0">
+            <!-- @include partials/header.html -->
+            <!-- @include partials/large-btn.html -->
+            <!-- @include partials/about.html -->
+            <!-- @include partials/education.html -->
+            <!-- @include partials/experience.html -->
+            <!-- @include partials/service.html -->
+            <!-- @include partials/portfolio.html -->
+            <!-- @include partials/review.html -->
+            <!-- @include partials/contact.html -->
+            <!-- @include partials/footer.html -->
+        </main>
+    </div>
+
+    <!-- Project image lightbox -->
+    <dialog id="lightbox" class="nb-lightbox">
+        <div class="mb-3 flex items-center justify-between gap-4">
+            <p id="lightboxTitle" class="font-mono text-xs uppercase tracking-[0.12em]"></p>
+            <button type="button" id="lightboxClose" class="nb-icon-btn" aria-label="Close preview" data-i18n-aria="ui.close"><i
+                    class="fa-solid fa-xmark"></i></button>
+        </div>
+        <img id="lightboxImage" alt="Project preview">
+        <div class="mt-4 flex items-center justify-between gap-4 font-mono text-xs uppercase">
+            <button type="button" id="lightboxPrev" class="nb-btn"><i class="fa-solid fa-arrow-left"></i> <span data-i18n="ui.prev">Prev</span></button>
+            <span id="lightboxCounter"></span>
+            <button type="button" id="lightboxNext" class="nb-btn"><span data-i18n="ui.next">Next</span> <i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+    </dialog>
+
+    <a href="#header" id="backToTop" class="nb-icon-btn fixed bottom-6 right-6 z-40 hidden bg-paper text-ink"
+        aria-label="Back to top" data-i18n-aria="ui.top"><i class="fa-solid fa-arrow-up"></i></a>
+
+    <script src="js/theme.js"></script>
+    <script src="js/i18n.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/contact-form.js"></script>
+</body>
+
+</html>

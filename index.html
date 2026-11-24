@@ -2,909 +2,1102 @@
 <html lang="en">
 
 <head>
+    <script>
+        (function () {
+            try {
+                var theme = localStorage.getItem('bahrul-portfolio-theme');
+                document.documentElement.dataset.theme = theme === 'dark' ? 'dark' : 'light';
+                document.documentElement.lang =
+                    localStorage.getItem('bahrul-portfolio-lang') === 'en' ? 'en' : 'id';
+            } catch (e) {
+                document.documentElement.dataset.theme = 'light';
+                document.documentElement.lang = 'id';
+            }
+        })();
+    </script>
     <meta charset="utf-8">
     <title>BAHRUL | PORTOFOLIO</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="Resume Website Template Free Download" name="keywords">
-    <meta content="Resume Website Template Free Download" name="description">
+    <meta content="Portfolio of Ach. Bahrul Ma'arip - AI, Data Science & Full-Stack Developer" name="description">
 
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
     <link rel="manifest" href="site.webmanifest">
 
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
 
-    <!-- CSS Libraries -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-    <link href="lib/slick/slick.css" rel="stylesheet">
-    <link href="lib/slick/slick-theme.css" rel="stylesheet">
-    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
-    <!-- Tambahkan Font Awesome di head HTML -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-
-    <style>
-
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style type="text/tailwindcss">
+        @theme {
+            --font-sans: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+            --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+            --color-ink: #0a0a0a;
+            --color-paper: #ffffff;
+            --color-smoke: #f4f4f5;
+            --color-steel: #a1a1aa;
+        }
     </style>
-    <!-- Template Stylesheet -->
+
+    <!-- Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+
+    <!-- Small component layer (neobrutalist utilities) -->
     <link href="css/style.css" rel="stylesheet">
 </head>
 
-<body data-spy="scroll" data-target=".navbar" data-offset="51">
-    <div class="wrapper">
-        <div class="sidebar">
-            <div class="sidebar-header">
-                <!-- <img src="img/profile.jpg" alt="Image"> -->
-            </div>
-            <div class="sidebar-content">
-                <nav class="navbar navbar-expand-md bg-dark navbar-dark">
-                    <a href="#" class="navbar-brand">ACH. BAHRUL MA'ARIP</a>
-                    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarCollapse">
-                        <ul class="nav navbar-nav">
-                            <li class="nav-item">
-                                <a class="nav-link" href="#header">Home<i class="fa fa-home"></i></a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#about">About<i class="fa fa-address-card"></i></a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#experience">Experience<i class="fa fa-star"></i></a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#service">Service<i class="fa fa-tasks"></i></a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#portfolio">Portfolio<i class="fa fa-file-archive"></i></a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#contact">Contact<i class="fa fa-envelope"></i></a>
-                            </li>
-                        </ul>
-                    </div>
-                </nav>
-            </div>
-            <div class="sidebar-footer">
-                <a href="https://x.com/shusui_songolas" target="_blank"><i class="fab fa-twitter"></i></a>
-                <a href="https://web.facebook.com/people/Ach-Bahrul/pfbid0kiycxSA5eJ676oedDRVayoz6BWVnFkfkDKEdjeaDYk2Jur2FWDFy1Z63QKjAyUqVl/"
-                    target="_blank"><i class="fab fa-facebook-f"></i></a>
-                <a href="https://www.linkedin.com/in/ach-bahrul-ma-arip-a1a14b313/" target="_blank"><i
-                        class="fab fa-linkedin-in"></i></a>
-            </div>
+<body class="bg-paper text-ink antialiased">
+    <div class="min-h-screen pt-[72px] lg:pl-[280px] lg:pt-0">
+<aside
+    class="sidebar fixed inset-x-0 top-0 z-50 border-b-2 border-ink bg-paper lg:inset-y-0 lg:right-auto lg:w-[280px] lg:border-b-0 lg:border-r-2 lg:flex lg:flex-col">
+    <div class="flex shrink-0 items-center justify-between px-5 py-4 lg:block lg:px-6 lg:py-7">
+        <div>
+            <p class="font-mono text-[10px] uppercase tracking-[0.25em] text-steel"><span
+                    data-i18n="nav.label">Portfolio / 2026</span></p>
+            <a href="#header" class="mt-1 block text-lg font-bold uppercase leading-none tracking-tight lg:text-xl">ACH.
+                BAHRUL MA'ARIP</a>
         </div>
-        <div class="content">
-            <!-- Header Start -->
-            <div class="header" id="header">
-                <div class="content-inner">
-                    <p>I'm</p>
-                    <h1>ACH. BAHRUL MA'ARIP</h1>
-                    <h2></h2>
-                    <div class="typed-text">Web Developer, Mobile Developer, AI Engineer</div>
-                </div>
-            </div>
-            <!-- Header End -->
+        <button id="navToggle" type="button" aria-label="Toggle navigation" data-i18n-aria="aria.toggleNav"
+            aria-expanded="false" class="nb-icon-btn lg:hidden">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+    </div>
 
-            <!-- Large Button Start -->
-            <div class="large-btn">
-                <div class="content-inner">
-                    <a class="btn" href="img/cv.pdf" target="_blank">
-                        <i class="fa fa-download"></i> Resume
+    <nav id="navMenu"
+        class="hidden border-t-2 border-ink bg-paper px-5 py-4 lg:flex lg:min-h-0 lg:flex-1 lg:flex-col lg:overflow-y-auto lg:border-t-0 lg:px-6 lg:py-0">
+        <ul class="flex flex-col gap-1">
+            <li><a class="nav-link" href="#header"><span><span data-i18n="nav.home">Home</span></span><i
+                        class="fa-solid fa-house"></i></a></li>
+            <li><a class="nav-link" href="#about"><span><span data-i18n="nav.about">About</span></span><i
+                        class="fa-solid fa-address-card"></i></a></li>
+            <li><a class="nav-link" href="#experience"><span><span data-i18n="exp.title">Experience</span></span><i
+                        class="fa-solid fa-star"></i></a></li>
+            <li><a class="nav-link" href="#service"><span><span data-i18n="svc.title">Service</span></span><i
+                        class="fa-solid fa-list-check"></i></a></li>
+            <li><a class="nav-link" href="#portfolio"><span><span data-i18n="pf.title">Portfolio</span></span><i
+                        class="fa-solid fa-folder-open"></i></a></li>
+            <li><a class="nav-link" href="#contact"><span><span data-i18n="ct.title">Contact</span></span><i
+                        class="fa-solid fa-envelope"></i></a></li>
+        </ul>
+        <div class="mt-5 flex items-center gap-2 border-t-2 border-ink pt-5 lg:mt-6">
+            <span class="font-mono text-[10px] uppercase tracking-[0.2em] text-steel">ID / EN</span>
+            <button type="button" data-lang="id" aria-pressed="true"
+                class="choice-btn nb-chip cursor-pointer">ID</button>
+            <button type="button" data-lang="en" aria-pressed="false"
+                class="choice-btn nb-chip cursor-pointer">EN</button>
+        </div>
+        <div class="mt-4 flex items-center pb-3 gap-2 border-t-2 border-ink pt-4 lg:mt-5">
+            <span class="font-mono text-[10px] uppercase tracking-[0.2em] text-steel" data-i18n="ui.theme">Theme</span>
+            <button type="button" data-theme-choice="light" aria-pressed="true" aria-label="Light theme"
+                data-i18n-aria="theme.light" class="choice-btn nb-icon-btn"><i class="fa-solid fa-sun"></i></button>
+            <button type="button" data-theme-choice="dark" aria-pressed="false" aria-label="Dark theme"
+                data-i18n-aria="theme.dark" class="choice-btn nb-icon-btn"><i class="fa-solid fa-moon"></i></button>
+        </div>
+    </nav>
+
+    <div class="hidden shrink-0 items-center gap-2 border-t-2 border-ink px-6 py-5 lg:mt-auto lg:flex">
+        <a href="https://x.com/shusui_songolas" target="_blank" aria-label="Twitter" class="nb-icon-btn"><i
+                class="fa-brands fa-twitter"></i></a>
+        <a href="https://web.facebook.com/people/Ach-Bahrul/pfbid0kiycxSA5eJ676oedDRVayoz6BWVnFkfkDKEdjeaDYk2Jur2FWDFy1Z63QKjAyUqVl/"
+            target="_blank" aria-label="Facebook" class="nb-icon-btn"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://www.linkedin.com/in/ach-bahrul-ma-arip-a1a14b313/" target="_blank" aria-label="LinkedIn"
+            class="nb-icon-btn"><i class="fa-brands fa-linkedin-in"></i></a>
+    </div>
+</aside>        <main class="min-w-0">
+<!-- Header Start -->
+<section class="nb-section nb-section-dark flex min-h-[62vh] items-center lg:min-h-screen" id="header">
+    <div class="nb-container w-full">
+        <p class="nb-kicker text-steel"><span data-i18n="hero.kicker">— AI, Data Science &amp; Full-Stack
+                Developer</span></p>
+        <h1
+            class="mt-6 max-w-5xl text-5xl font-bold uppercase leading-[0.92] tracking-[-0.05em] sm:text-6xl lg:text-8xl">
+            ACH. BAHRUL MA'ARIP
+        </h1>
+        <div
+            class="mt-10 flex flex-wrap items-center gap-3 border-t-2 border-paper pt-5 font-mono text-xs uppercase tracking-[0.18em] sm:text-sm">
+            <span class="text-steel"><span data-i18n="hero.im">I'm a</span></span>
+            <span id="typedText" data-typed="Web Developer, Mobile Developer, AI Engineer, Data Scientist"
+                data-i18n-typed="hero.roles"></span>
+            <span class="typing-cursor">_</span>
+        </div>
+    </div>
+</section>
+<!-- Header End -->            <!-- Large Button Start -->
+            <div class="border-b-2 border-ink bg-paper">
+                <div class="nb-container flex flex-wrap gap-4 py-7">
+                    <a href="img/cv.pdf" target="_blank" class="nb-btn">
+                        <i class="fa-solid fa-download"></i> Resume
                     </a>
-                    <a class="btn" href="#contact" id="hireMeBtn">
-                        <i class="fa fa-hands-helping"></i> Hire Me
+                    <a href="#contact" id="hireMeBtn" class="nb-btn nb-btn-solid">
+                        <i class="fa-solid fa-handshake"></i> <span data-i18n="btn.hire">Hire Me</span>
                     </a>
                 </div>
             </div>
             <!-- Large Button End -->
-
             <!-- About Start -->
-            <div class="about" id="about">
-                <div class="content-inner">
-                    <div class="content-header">
-                        <h2>About Me</h2>
-                    </div>
-                    <div class="row align-items-center">
-                        <div class="col-md-6 col-lg-5 text-center mb-4 mb-md-0">
-                            <img src="img/tes.png" alt="Profile Image" class="img-fluid rounded">
+            <section class="nb-section" id="about">
+                <div class="nb-container">
+                    <p class="nb-kicker text-steel"><span data-i18n="about.kicker">01 / Profile</span></p>
+                    <h2 class="nb-title mt-4"><span data-i18n="about.title">About Me</span></h2>
+                    <div class="mt-10 grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.6fr)] lg:items-start">
+                        <div class="border-2 border-ink p-2 shadow-[8px_8px_0_0_#0a0a0a]">
+                            <img src="img/tes.png" alt="Profile Image" class="w-full object-cover">
                         </div>
-                        <div class="col-md-6 col-lg-7">
-                            <p>
-                                I am a student in the Informatics Engineering program at Jember State Polytechnic. I
-                                have experience
-                                working as a Full Stack Web Developer and Full Stack Mobile Developer. Through this
-                                experience, I
-                                have developed strong skills in various programming languages and frameworks.
+                        <div>
+                            <p class="text-base leading-relaxed sm:text-lg">
+                                <span data-i18n="about.bio">I am a D4 Informatics Engineering student at Politeknik Negeri Jember (PSDKU Kabupaten
+                                Nganjuk) and a Dicoding alumni, recognized as the Valedictorian (best participant) of
+                                the PIJAK 2026 program in collaboration with IBM SkillsBuild. I focus on Artificial
+                                Intelligence, Data Science, and Full-Stack Web Development, with experience building
+                                government web and mobile information systems, REST APIs for machine learning and
+                                computer vision models, and data processing pipelines. I am also used to working in
+                                cross-cultural teams, writing technical documentation, and mentoring peers.</span>
                             </p>
-                            <p><strong>Tech Stack:</strong></p>
-                            <div class="row justify-content-center">
-                                <div class="col-4 col-sm-3 col-md-2 mb-3 text-center">
+                            <p class="nb-kicker mt-8">Tech Stack</p>
+                            <div class="mt-5 grid grid-cols-2 gap-3 sm:grid-cols-4 lg:grid-cols-6">
+                                <div class="nb-tech">
                                     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"
-                                        class="tech-icon" alt="HTML5">
-                                    <div class="tech-label">HTML5</div>
+                                        class="h-8 w-8 object-contain" alt="HTML5">
+                                    <div class="font-mono text-[11px] uppercase tracking-wide">HTML5</div>
                                 </div>
-                                <div class="col-4 col-sm-3 col-md-2 mb-3 text-center">
+                                <div class="nb-tech">
                                     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"
-                                        class="tech-icon" alt="CSS3">
-                                    <div class="tech-label">CSS3</div>
+                                        class="h-8 w-8 object-contain" alt="CSS3">
+                                    <div class="font-mono text-[11px] uppercase tracking-wide">CSS3</div>
                                 </div>
-                                <div class="col-4 col-sm-3 col-md-2 mb-3 text-center">
+                                <div class="nb-tech">
                                     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
-                                        class="tech-icon" alt="JavaScript">
-                                    <div class="tech-label">JavaScript</div>
+                                        class="h-8 w-8 object-contain" alt="JavaScript">
+                                    <div class="font-mono text-[11px] uppercase tracking-wide">JavaScript</div>
                                 </div>
-                                <div class="col-4 col-sm-3 col-md-2 mb-3 text-center">
+                                <div class="nb-tech">
                                     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg"
-                                        class="tech-icon" alt="Bootstrap">
-                                    <div class="tech-label">Bootstrap</div>
+                                        class="h-8 w-8 object-contain" alt="Bootstrap">
+                                    <div class="font-mono text-[11px] uppercase tracking-wide">Bootstrap</div>
                                 </div>
-                                <div class="col-4 col-sm-3 col-md-2 mb-3 text-center">
-                                    <img src="https://cdn.simpleicons.org/tailwindcss/06B6D4" class="tech-icon"
+                                <div class="nb-tech">
+                                    <img src="https://cdn.simpleicons.org/tailwindcss/06B6D4" class="h-8 w-8 object-contain"
                                         alt="Tailwind CSS">
-                                    <div class="tech-label">Tailwind</div>
+                                    <div class="font-mono text-[11px] uppercase tracking-wide">Tailwind</div>
                                 </div>
-                                <div class="col-4 col-sm-3 col-md-2 mb-3 text-center">
+                                <div class="nb-tech">
                                     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg"
-                                        class="tech-icon" alt="PHP">
-                                    <div class="tech-label">PHP</div>
+                                        class="h-8 w-8 object-contain" alt="PHP">
+                                    <div class="font-mono text-[11px] uppercase tracking-wide">PHP</div>
                                 </div>
-                                <div class="col-4 col-sm-3 col-md-2 mb-3 text-center">
+                                <div class="nb-tech">
                                     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg"
-                                        class="tech-icon" alt="Laravel">
-                                    <div class="tech-label">Laravel</div>
+                                        class="h-8 w-8 object-contain" alt="Laravel">
+                                    <div class="font-mono text-[11px] uppercase tracking-wide">Laravel</div>
                                 </div>
-                                <div class="col-4 col-sm-3 col-md-2 mb-3 text-center">
+                                <div class="nb-tech">
                                     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg"
-                                        class="tech-icon" alt="Java">
-                                    <div class="tech-label">Java</div>
+                                        class="h-8 w-8 object-contain" alt="Java">
+                                    <div class="font-mono text-[11px] uppercase tracking-wide">Java</div>
                                 </div>
-                                <div class="col-4 col-sm-3 col-md-2 mb-3 text-center">
+                                <div class="nb-tech">
                                     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg"
-                                        class="tech-icon" alt="Dart">
-                                    <div class="tech-label">Dart</div>
+                                        class="h-8 w-8 object-contain" alt="Dart">
+                                    <div class="font-mono text-[11px] uppercase tracking-wide">Dart</div>
                                 </div>
-                                <div class="col-4 col-sm-3 col-md-2 mb-3 text-center">
+                                <div class="nb-tech">
                                     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg"
-                                        class="tech-icon" alt="Flutter">
-                                    <div class="tech-label">Flutter</div>
+                                        class="h-8 w-8 object-contain" alt="Flutter">
+                                    <div class="font-mono text-[11px] uppercase tracking-wide">Flutter</div>
                                 </div>
-                                <div class="col-4 col-sm-3 col-md-2 mb-3 text-center">
+                                <div class="nb-tech">
                                     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg"
-                                        class="tech-icon" alt="Firebase">
-                                    <div class="tech-label">Firebase</div>
+                                        class="h-8 w-8 object-contain" alt="Firebase">
+                                    <div class="font-mono text-[11px] uppercase tracking-wide">Firebase</div>
                                 </div>
-                                <div class="col-4 col-sm-3 col-md-2 mb-3 text-center">
+                                <div class="nb-tech">
                                     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg"
-                                        class="tech-icon" alt="MySQL">
-                                    <div class="tech-label">MySQL</div>
+                                        class="h-8 w-8 object-contain" alt="MySQL">
+                                    <div class="font-mono text-[11px] uppercase tracking-wide">MySQL</div>
                                 </div>
-                                <div class="col-4 col-sm-3 col-md-2 mb-3 text-center">
-                                    <img src="https://cdn.simpleicons.org/python/3776AB" class="tech-icon" alt="Python">
-                                    <div class="tech-label">Python</div>
+                                <div class="nb-tech">
+                                    <img src="https://cdn.simpleicons.org/python/3776AB" class="h-8 w-8 object-contain" alt="Python">
+                                    <div class="font-mono text-[11px] uppercase tracking-wide">Python</div>
                                 </div>
-                                <div class="col-4 col-sm-3 col-md-2 mb-3 text-center">
-                                    <img src="https://cdn.simpleicons.org/react/61DAFB" class="tech-icon" alt="React">
-                                    <div class="tech-label">React</div>
+                                <div class="nb-tech">
+                                    <img src="https://cdn.simpleicons.org/react/61DAFB" class="h-8 w-8 object-contain" alt="React">
+                                    <div class="font-mono text-[11px] uppercase tracking-wide">React</div>
                                 </div>
-                                <div class="col-4 col-sm-3 col-md-2 mb-3 text-center">
-                                    <img src="https://cdn.simpleicons.org/express/000000" class="tech-icon"
+                                <div class="nb-tech">
+                                    <img src="https://cdn.simpleicons.org/express/000000" class="h-8 w-8 object-contain"
                                         alt="Express.js">
-                                    <div class="tech-label">Express.js</div>
+                                    <div class="font-mono text-[11px] uppercase tracking-wide">Express.js</div>
                                 </div>
-                                <div class="col-4 col-sm-3 col-md-2 mb-3 text-center">
-                                    <img src="https://cdn.simpleicons.org/nodedotjs/339933" class="tech-icon"
+                                <div class="nb-tech">
+                                    <img src="https://cdn.simpleicons.org/nodedotjs/339933" class="h-8 w-8 object-contain"
                                         alt="Node.js">
-                                    <div class="tech-label">Node.js</div>
+                                    <div class="font-mono text-[11px] uppercase tracking-wide">Node.js</div>
                                 </div>
-                                <div class="col-4 col-sm-3 col-md-2 mb-3 text-center">
-                                    <img src="https://cdn.simpleicons.org/mongodb/47A248" class="tech-icon"
+                                <div class="nb-tech">
+                                    <img src="https://cdn.simpleicons.org/mongodb/47A248" class="h-8 w-8 object-contain"
                                         alt="MongoDB">
-                                    <div class="tech-label">MongoDB</div>
+                                    <div class="font-mono text-[11px] uppercase tracking-wide">MongoDB</div>
                                 </div>
-                                <div class="col-4 col-sm-3 col-md-2 mb-3 text-center">
-                                    <img src="https://cdn.simpleicons.org/postman/FF6C37" class="tech-icon"
+                                <div class="nb-tech">
+                                    <img src="https://cdn.simpleicons.org/postman/FF6C37" class="h-8 w-8 object-contain"
                                         alt="Postman">
-                                    <div class="tech-label">Postman</div>
+                                    <div class="font-mono text-[11px] uppercase tracking-wide">Postman</div>
+                                </div>
+                                <div class="nb-tech">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg"
+                                        class="h-8 w-8 object-contain" alt="TypeScript">
+                                    <div class="font-mono text-[11px] uppercase tracking-wide">TypeScript</div>
+                                </div>
+                                <div class="nb-tech">
+                                    <i class="fa-solid fa-database text-2xl"></i>
+                                    <div class="font-mono text-[11px] uppercase tracking-wide">SQL</div>
+                                </div>
+                                <div class="nb-tech">
+                                    <img src="https://cdn.simpleicons.org/fastapi/009688" class="h-8 w-8 object-contain"
+                                        alt="FastAPI">
+                                    <div class="font-mono text-[11px] uppercase tracking-wide">FastAPI</div>
+                                </div>
+                                <div class="nb-tech">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg"
+                                        class="h-8 w-8 object-contain" alt="Flask">
+                                    <div class="font-mono text-[11px] uppercase tracking-wide">Flask</div>
+                                </div>
+                                <div class="nb-tech">
+                                    <img src="https://cdn.simpleicons.org/scikitlearn/F7C922" class="h-8 w-8 object-contain"
+                                        alt="scikit-learn">
+                                    <div class="font-mono text-[11px] uppercase tracking-wide">scikit-learn</div>
+                                </div>
+                                <div class="nb-tech">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg"
+                                        class="h-8 w-8 object-contain" alt="TensorFlow">
+                                    <div class="font-mono text-[11px] uppercase tracking-wide">TensorFlow</div>
+                                </div>
+                                <div class="nb-tech">
+                                    <img src="https://cdn.simpleicons.org/pytorch/EE4C2C" class="h-8 w-8 object-contain"
+                                        alt="PyTorch">
+                                    <div class="font-mono text-[11px] uppercase tracking-wide">PyTorch</div>
+                                </div>
+                                <div class="nb-tech">
+                                    <i class="fa-solid fa-chart-line text-2xl"></i>
+                                    <div class="font-mono text-[11px] uppercase tracking-wide">Prophet</div>
+                                </div>
+                                <div class="nb-tech">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/opencv/opencv-original.svg"
+                                        class="h-8 w-8 object-contain" alt="OpenCV">
+                                    <div class="font-mono text-[11px] uppercase tracking-wide">OpenCV</div>
+                                </div>
+                                <div class="nb-tech">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg"
+                                        class="h-8 w-8 object-contain" alt="Pandas">
+                                    <div class="font-mono text-[11px] uppercase tracking-wide">Pandas</div>
+                                </div>
+                                <div class="nb-tech">
+                                    <i class="fa-solid fa-language text-2xl"></i>
+                                    <div class="font-mono text-[11px] uppercase tracking-wide">NLTK</div>
+                                </div>
+                                <div class="nb-tech">
+                                    <i class="fa-solid fa-language text-2xl"></i>
+                                    <div class="font-mono text-[11px] uppercase tracking-wide">Sastrawi</div>
+                                </div>
+                                <div class="nb-tech">
+                                    <i class="fa-solid fa-plug text-2xl"></i>
+                                    <div class="font-mono text-[11px] uppercase tracking-wide">REST API</div>
+                                </div>
+                                <div class="nb-tech">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mariadb/mariadb-original.svg"
+                                        class="h-8 w-8 object-contain" alt="MariaDB">
+                                    <div class="font-mono text-[11px] uppercase tracking-wide">MariaDB</div>
+                                </div>
+                                <div class="nb-tech">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg"
+                                        class="h-8 w-8 object-contain" alt="PostgreSQL">
+                                    <div class="font-mono text-[11px] uppercase tracking-wide">PostgreSQL</div>
+                                </div>
+                                <div class="nb-tech">
+                                    <img src="https://cdn.simpleicons.org/supabase/3FCF8E" class="h-8 w-8 object-contain"
+                                        alt="Supabase">
+                                    <div class="font-mono text-[11px] uppercase tracking-wide">Supabase</div>
+                                </div>
+                                <div class="nb-tech">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"
+                                        class="h-8 w-8 object-contain" alt="Git">
+                                    <div class="font-mono text-[11px] uppercase tracking-wide">Git</div>
+                                </div>
+                                <div class="nb-tech">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
+                                        class="h-8 w-8 object-contain" alt="GitHub">
+                                    <div class="font-mono text-[11px] uppercase tracking-wide">GitHub</div>
+                                </div>
+                                <div class="nb-tech">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg"
+                                        class="h-8 w-8 object-contain" alt="Docker">
+                                    <div class="font-mono text-[11px] uppercase tracking-wide">Docker</div>
+                                </div>
+                                <div class="nb-tech">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg"
+                                        class="h-8 w-8 object-contain" alt="VS Code">
+                                    <div class="font-mono text-[11px] uppercase tracking-wide">VS Code</div>
+                                </div>
+                                <div class="nb-tech">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg"
+                                        class="h-8 w-8 object-contain" alt="Google Cloud Platform">
+                                    <div class="font-mono text-[11px] uppercase tracking-wide">Google Cloud</div>
                                 </div>
                             </div>
+                            <p class="mt-8 leading-relaxed"><span class="font-semibold uppercase">Soft Skills:</span> <span data-i18n="about.soft">Mentoring &amp; technical communication, problem solving,
+                                critical thinking, teamwork, and time management.</span></p>
+                            <p class="mt-3 leading-relaxed"><span class="font-semibold uppercase"><span data-i18n="about.langLabel">Languages:</span></span> <span data-i18n="about.langs">Indonesian (fluent), Javanese (fluent), English (basic).</span></p>
                         </div>
                     </div>
                 </div>
-            </div>
+            </section>
             <!-- About End -->
 
             <!-- Education Start -->
-            <div class="education" id="education">
-                <div class="content-inner">
-                    <div class="content-header">
-                        <h2>Education</h2>
-                    </div>
-                    <div class="row align-items-center">
-                        <div class="col-md-6">
-                            <div class="edu-col">
-                                <span>July 2011 <i>to</i> June 2017</span>
-                                <h3>Elementary School</h3>
-                                <p>Graduated from SDN Cangkringan, located in Nganjuk District, Nganjuk Regency, East
-                                    Java, on June 10, 2017.
+            <section class="nb-section" id="education">
+                <div class="nb-container">
+                    <p class="nb-kicker text-steel"><span data-i18n="edu.kicker">02 / Academic</span></p>
+                    <h2 class="nb-title mt-4"><span data-i18n="edu.title">Education</span></h2>
+                    <div class="mt-10 grid gap-6 md:grid-cols-2">
+                        <div>
+                            <div class="nb-card h-full">
+                                <span class="nb-chip">July 2011 — June 2017</span>
+                                <h3 class="mt-5 text-xl font-bold uppercase leading-tight tracking-tight"><span data-i18n="edu.sd">Elementary School</span></h3>
+                                <p class="mt-3 text-sm leading-relaxed"><span data-i18n="edu.sdText">Graduated from SDN Cangkringan, located in Nganjuk District, Nganjuk Regency, East
+                                    Java, on June 10, 2017.</span>
                                 </p>
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="edu-col">
-                                <span>July 2017 <i>to</i> June 2020</span>
-                                <h3>Junior High School</h3>
-                                <p>Graduated from MTs Negeri Nganjuk, located in Nganjuk District, Nganjuk Regency, East
-                                    Java, on June 5, 2020.
+                        <div>
+                            <div class="nb-card h-full">
+                                <span class="nb-chip">July 2017 — June 2020</span>
+                                <h3 class="mt-5 text-xl font-bold uppercase leading-tight tracking-tight"><span data-i18n="edu.smp">Junior High School</span></h3>
+                                <p class="mt-3 text-sm leading-relaxed"><span data-i18n="edu.smpText">Graduated from MTs Negeri Nganjuk, located in Nganjuk District, Nganjuk Regency, East
+                                    Java, on June 5, 2020.</span>
                                 </p>
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="edu-col">
-                                <span>July 2020 <i>to</i> May 2023</span>
-                                <h3>Senior High School</h3>
-                                <p>Graduated from SMA Negeri 1 Nganjuk, located in Nganjuk District, Nganjuk Regency,
-                                    East Java, on May 8, 2023.
+                        <div>
+                            <div class="nb-card h-full">
+                                <span class="nb-chip">July 2020 — May 2023</span>
+                                <h3 class="mt-5 text-xl font-bold uppercase leading-tight tracking-tight"><span data-i18n="edu.sma">Senior High School (MIPA)</span></h3>
+                                <p class="mt-3 text-sm leading-relaxed"><span data-i18n="edu.smaText">Graduated from SMA Negeri 1 Nganjuk, located in Nganjuk District, Nganjuk Regency,
+                                    East Java, on May 8, 2023.</span>
                                 </p>
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="edu-col">
-                                <span>August 2023 <i>to</i> Present</span>
-                                <h3>Bachelor of Applied Science in Informatics Engineering (D4)</h3>
-                                <p>Currently studying Information Technology in the Informatics Engineering program at
-                                    Politeknik Negeri Jember,
-                                    East Java.</p>
+                        <div>
+                            <div class="nb-card h-full">
+                                <span class="nb-chip">August 2023 — Present</span>
+                                <h3 class="mt-5 text-xl font-bold uppercase leading-tight tracking-tight"><span data-i18n="edu.d4">Bachelor of Applied Science in Informatics Engineering (D4)</span></h3>
+                                <p class="mt-3 text-sm leading-relaxed"><span data-i18n="edu.d4Text">Currently studying Informatics Engineering at Politeknik Negeri Jember, PSDKU
+                                    Kabupaten Nganjuk, East Java.</span></p>
+                                <p class="mt-3 text-sm leading-relaxed"><strong><span data-i18n="edu.courseworkLabel">Relevant coursework:</span></strong> <span data-i18n="edu.coursework">Software Development, Basic Programming
+                                    (Java), Object-Oriented Programming, Web-Based Information Systems &amp; Frameworks,
+                                    Software Testing &amp; Quality, Intelligent Systems Workshop, Image &amp; Vision
+                                    Processing Workshop, Project Management.</span></p>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <!-- Education Start -->
+            </section>
+            <!-- Education End -->
 
             <!-- Experience Start -->
-            <div class="experience" id="experience">
-                <div class="content-inner">
-                    <div class="content-header">
-                        <h2>Experience</h2>
-                    </div>
-                    <div class="row align-items-center">
-                        <div class="col-md-6">
-                            <div class="exp-col">
-                                <h3>Nganjuk Visit Website</h3>
-                                <h4>Nganjuk, East Java</h4>
-                                <h5>Full Stack Web Developer</h5>
-                                <p>Developed a comprehensive website for tourism, culinary, accommodation, and events in
-                                    Nganjuk Regency. Responsible
-                                    for both front-end and back-end development, ensuring a smooth user experience and
-                                    dynamic content updates.</p>
-                                <a href="https://nganjukvisit.pbltifnganjuk.com/" target="_blank" class="btn btn-link">
-                                    <i class="fas fa-globe"></i> View Website
-                                </a>
-                                <a href="https://github.com/hajuenter/web_nganjukvisit" target="_blank"
-                                    class="btn btn-link">
-                                    <i class="fab fa-github"></i> View Repository
+            <section class="nb-section nb-section-dark" id="experience">
+                <div class="nb-container">
+                    <p class="nb-kicker text-steel"><span data-i18n="exp.kicker">03 / Work &amp; Projects</span></p>
+                    <h2 class="nb-title mt-4"><span data-i18n="exp.title">Experience</span></h2>
+                    <div class="mt-12 grid gap-8 md:grid-cols-2">
+                        <div>
+                            <div class="nb-card h-full">
+                                <span class="nb-chip mb-4">July 2026 — November 2026</span>
+                                <h3 class="text-xl font-bold uppercase leading-tight tracking-tight"><span data-i18n="exp.internTitle">Web Programmer Intern</span></h3>
+                                <h4 class="mt-2 font-mono text-xs uppercase tracking-[0.12em] text-steel">Dinas Komunikasi dan Informatika (Diskominfo) Kabupaten Sidoarjo</h4>
+                                <h5 class="mt-3 text-sm font-semibold uppercase tracking-wide"><span data-i18n="exp.webDev">Web Developer</span></h5>
+                                <p class="mt-4 text-sm leading-relaxed sm:text-base"><span data-i18n="exp.internText">Designed and developed a centralized village data warehouse system using PHP and a
+                                    relational database to support government data integration and synchronization.
+                                    Prepared technical architecture documentation and coordinated with the internal team
+                                    on quality testing and data-flow validation.</span></p>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="nb-card h-full">
+                                <h3 class="text-xl font-bold uppercase leading-tight tracking-tight"><span data-i18n="exp.mangoTitle">Mango Classification API &amp; Monitoring</span></h3>
+                                <h4 class="mt-2 font-mono text-xs uppercase tracking-[0.12em] text-steel"><span data-i18n="exp.mangoOrg">Project Based Learning &amp; IoT Integration</span></h4>
+                                <h5 class="mt-3 text-sm font-semibold uppercase tracking-wide"><span data-i18n="exp.mangoRole">AI &amp; Backend Developer</span></h5>
+                                <p class="mt-4 text-sm leading-relaxed sm:text-base"><span data-i18n="exp.mangoText">Developed a computer vision image classification model in Python to distinguish
+                                    healthy and rotten mangoes and deployed it as a REST API. Integrated real-time
+                                    inference with an ESP32 microcontroller, conveyor, and servo, and built a mobile
+                                    monitoring app with automated PDF reporting.</span></p>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="nb-card h-full">
+                                <h3 class="text-xl font-bold uppercase leading-tight tracking-tight"><span data-i18n="exp.smartTitle">SmartSeller AI &amp; Aspect-Based Sentiment Analysis</span></h3>
+                                <h4 class="mt-2 font-mono text-xs uppercase tracking-[0.12em] text-steel"><span data-i18n="exp.smartOrg">Independent Project &amp; Final Assignment Research</span></h4>
+                                <h5 class="mt-3 text-sm font-semibold uppercase tracking-wide"><span data-i18n="exp.smartRole">Full-Stack &amp; Machine Learning Developer</span></h5>
+                                <p class="mt-4 text-sm leading-relaxed sm:text-base"><span data-i18n="exp.smartText">Built a weekly sales forecasting dashboard using Python, Prophet, FastAPI, React,
+                                    and TypeScript to predict product categories up to 100 weeks ahead. Conducted
+                                    aspect-based sentiment analysis with Support Vector Machine (SVM) on 5,000 social
+                                    media posts from X, YouTube, and TikTok.</span></p>
+                                <a href="https://github.com/hajuenter/capstone_pijak_ibm_skills_build" target="_blank"
+                                    class="nb-btn mb-3 mr-3 mt-5">
+                                    <i class="fa-brands fa-github"></i> <span data-i18n="exp.viewRepo">View Repository</span>
                                 </a>
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="exp-col">
-                                <h3>Nganjuk Visit Mobile App</h3>
-                                <h4>Nganjuk, East Java</h4>
-                                <h5>Mobile App Programmer</h5>
-                                <p>Developed the Nganjuk Visit mobile application, featuring online ticket purchasing
+                        <div>
+                            <div class="nb-card h-full">
+                                <h3 class="text-xl font-bold uppercase leading-tight tracking-tight"><span data-i18n="exp.visitWebTitle">Nganjuk Visit Website</span></h3>
+                                <h4 class="mt-2 font-mono text-xs uppercase tracking-[0.12em] text-steel"><span data-i18n="exp.location">Nganjuk, East Java</span></h4>
+                                <h5 class="mt-3 text-sm font-semibold uppercase tracking-wide"><span data-i18n="exp.fullStackWeb">Full Stack Web Developer</span></h5>
+                                <p class="mt-4 text-sm leading-relaxed sm:text-base"><span data-i18n="exp.visitWebText">Developed a comprehensive website for tourism, culinary, accommodation, and events in
+                                    Nganjuk Regency. Responsible
+                                    for both front-end and back-end development, ensuring a smooth user experience and
+                                    dynamic content updates.</span></p>
+                                <a href="https://nganjukvisit.pbltifnganjuk.com/" target="_blank" class="nb-btn mb-3 mr-3 mt-5">
+                                    <i class="fa-solid fa-globe"></i> <span data-i18n="exp.viewWeb">View Website</span>
+                                </a>
+                                <a href="https://github.com/hajuenter/web_nganjukvisit" target="_blank"
+                                    class="nb-btn mb-3 mr-3 mt-5">
+                                    <i class="fa-brands fa-github"></i> <span data-i18n="exp.viewRepo">View Repository</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="nb-card h-full">
+                                <h3 class="text-xl font-bold uppercase leading-tight tracking-tight"><span data-i18n="exp.visitAppTitle">Nganjuk Visit Mobile App</span></h3>
+                                <h4 class="mt-2 font-mono text-xs uppercase tracking-[0.12em] text-steel"><span data-i18n="exp.location">Nganjuk, East Java</span></h4>
+                                <h5 class="mt-3 text-sm font-semibold uppercase tracking-wide"><span data-i18n="exp.mobileProgrammer">Mobile App Programmer</span></h5>
+                                <p class="mt-4 text-sm leading-relaxed sm:text-base"><span data-i18n="exp.visitAppText">Developed the Nganjuk Visit mobile application, featuring online ticket purchasing
                                     for tourism. Involved in overall
                                     app development, including UI/UX design, integration with payment systems, ensuring
                                     seamless experience for ticket
-                                    bookings.</p>
+                                    bookings.</span></p>
                                 <a href="https://nganjukvisit.pbltifnganjuk.com/download/NganjukVisit.apk"
-                                    target="_blank" class="btn btn-link">
-                                    <i class="fas fa-download"></i> Download App
+                                    target="_blank" class="nb-btn mb-3 mr-3 mt-5">
+                                    <i class="fa-solid fa-download"></i> <span data-i18n="exp.downloadApp">Download App</span>
                                 </a>
                                 <a href="https://github.com/hajuenter/mobile_nganjukvisit" target="_blank"
-                                    class="btn btn-link">
-                                    <i class="fab fa-github"></i> View Repository
+                                    class="nb-btn mb-3 mr-3 mt-5">
+                                    <i class="fa-brands fa-github"></i> <span data-i18n="exp.viewRepo">View Repository</span>
                                 </a>
                             </div>
                         </div>
 
-                        <div class="col-md-6">
-                            <div class="exp-col">
-                                <h3>Nganjuk Mase Website</h3>
-                                <h4>Nganjuk, East Java</h4>
-                                <h5>Full Stack Web Developer</h5>
-                                <p>Developed the Nganjuk Mase website, which provides news and schedules from the
+                        <div>
+                            <div class="nb-card h-full">
+                                <h3 class="text-xl font-bold uppercase leading-tight tracking-tight"><span data-i18n="exp.maseWebTitle">Nganjuk Mase Website</span></h3>
+                                <h4 class="mt-2 font-mono text-xs uppercase tracking-[0.12em] text-steel"><span data-i18n="exp.location">Nganjuk, East Java</span></h4>
+                                <h5 class="mt-3 text-sm font-semibold uppercase tracking-wide"><span data-i18n="exp.fullStackWeb">Full Stack Web Developer</span></h5>
+                                <p class="mt-4 text-sm leading-relaxed sm:text-base"><span data-i18n="exp.maseWebText">Developed the Nganjuk Mase website, which provides news and schedules from the
                                     Department of Public Housing,
                                     Settlement Areas, and Land Affairs in Nganjuk Regency. The website also manages CPB
                                     data for potential
-                                    housing aid recipients, streamlining data collection and related services.</p>
-                                <a href="https://nganjukmase.pbltifnganjuk.com/" target="_blank" class="btn btn-link">
-                                    <i class="fas fa-globe"></i> View Website
+                                    housing aid recipients based on weighted criteria, streamlining data collection and
+                                    related services.</span></p>
+                                <a href="https://nganjukmase.pbltifnganjuk.com/" target="_blank" class="nb-btn mb-3 mr-3 mt-5">
+                                    <i class="fa-solid fa-globe"></i> <span data-i18n="exp.viewWeb">View Website</span>
                                 </a>
-                                <a href="https://github.com/hajuenter/web_BuildUp" target="_blank" class="btn btn-link">
-                                    <i class="fab fa-github"></i> View Repository
+                                <a href="https://github.com/hajuenter/web_BuildUp" target="_blank" class="nb-btn mb-3 mr-3 mt-5">
+                                    <i class="fa-brands fa-github"></i> <span data-i18n="exp.viewRepo">View Repository</span>
                                 </a>
                             </div>
                         </div>
 
-                        <div class="col-md-6">
-                            <div class="exp-col">
-                                <h3>Nganjuk Mase Mobile App</h3>
-                                <h4>Nganjuk, East Java</h4>
-                                <h5>Full Stack Mobile Developer</h5>
-                                <p>Developed the Nganjuk Mase mobile app, designed for verification officers from the
+                        <div>
+                            <div class="nb-card h-full">
+                                <h3 class="text-xl font-bold uppercase leading-tight tracking-tight"><span data-i18n="exp.maseAppTitle">Nganjuk Mase Mobile App</span></h3>
+                                <h4 class="mt-2 font-mono text-xs uppercase tracking-[0.12em] text-steel"><span data-i18n="exp.location">Nganjuk, East Java</span></h4>
+                                <h5 class="mt-3 text-sm font-semibold uppercase tracking-wide"><span data-i18n="exp.fullStackMobile">Full Stack Mobile Developer</span></h5>
+                                <p class="mt-4 text-sm leading-relaxed sm:text-base"><span data-i18n="exp.maseAppText">Developed the Nganjuk Mase mobile app, designed for verification officers from the
                                     Department of Public
-                                    Housing to verify uninhabitable house data from registered CPB data. The app
-                                    integrates seamlessly with the
-                                    Nganjuk Mase website for efficient data management and verification tasks.</p>
+                                    Housing to verify uninhabitable house data from registered CPB data using a
+                                    weighted-criteria assessment. The app integrates seamlessly with the
+                                    Nganjuk Mase website for efficient data management and verification tasks.</span></p>
                                 <a href="https://github.com/hajuenter/mobile_BuildUp/up/apk/NganjukMase.apk"
-                                    target="_blank" class="btn btn-link">
-                                    <i class="fas fa-download"></i> Download App
+                                    target="_blank" class="nb-btn mb-3 mr-3 mt-5">
+                                    <i class="fa-solid fa-download"></i> <span data-i18n="exp.downloadApp">Download App</span>
                                 </a>
                                 <a href="https://github.com/hajuenter/mobile_BuildUp" target="_blank"
-                                    class="btn btn-link">
-                                    <i class="fab fa-github"></i> View Repository
+                                    class="nb-btn mb-3 mr-3 mt-5">
+                                    <i class="fa-brands fa-github"></i> <span data-i18n="exp.viewRepo">View Repository</span>
                                 </a>
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="exp-col">
-                                <h3>The Complete Dart Development Guide</h3>
-                                <h4>Udemy Online Course</h4>
-                                <h5>Dart Programming Fundamentals</h5>
-                                <p>Successfully completed the "The Complete Dart Development Guide" course on Udemy,
+                        <div>
+                            <div class="nb-card h-full">
+                                <h3 class="text-xl font-bold uppercase leading-tight tracking-tight">The Complete Dart Development Guide</h3>
+                                <h4 class="mt-2 font-mono text-xs uppercase tracking-[0.12em] text-steel"><span data-i18n="exp.udemyCourse">Udemy Online Course</span></h4>
+                                <h5 class="mt-3 text-sm font-semibold uppercase tracking-wide"><span data-i18n="exp.dartFundamentals">Dart Programming Fundamentals</span></h5>
+                                <p class="mt-4 text-sm leading-relaxed sm:text-base"><span data-i18n="exp.dartText">Successfully completed the "The Complete Dart Development Guide" course on Udemy,
                                     covering fundamental
                                     programming concepts using Dart language. The course focused on syntax, data types,
                                     functions,
                                     object-oriented programming, and Dart’s features to build solid foundations for
-                                    Flutter development.</p>
-                                <a href="img/serti-dart.pdf" target="_blank" class="btn btn-link">
-                                    <i class="fas fa-award"></i>
-                                    Click here to view the Certificate
+                                    Flutter development.</span></p>
+                                <a href="img/serti-dart.pdf" target="_blank" class="nb-btn mb-3 mr-3 mt-5">
+                                    <i class="fa-solid fa-award"></i>
+                                    <span data-i18n="exp.certificate">Click here to view the Certificate</span>
                                 </a>
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="exp-col">
-                                <h3>HTML5, CSS3, JavaScript, Bootstrap & jQuery Masterclass</h3>
-                                <h4>Udemy Online Course</h4>
-                                <h5>Modern Web Development Course</h5>
-                                <p>
-                                    Completed a comprehensive course covering HTML5, CSS3, JavaScript, Bootstrap, and
+                        <div>
+                            <div class="nb-card h-full">
+                                <h3 class="text-xl font-bold uppercase leading-tight tracking-tight">HTML5, CSS3, JavaScript, Bootstrap & jQuery Masterclass</h3>
+                                <h4 class="mt-2 font-mono text-xs uppercase tracking-[0.12em] text-steel"><span data-i18n="exp.udemyCourse">Udemy Online Course</span></h4>
+                                <h5 class="mt-3 text-sm font-semibold uppercase tracking-wide"><span data-i18n="exp.webCourse">Modern Web Development Course</span></h5>
+                                <p class="mt-4 text-sm leading-relaxed sm:text-base">
+                                    <span data-i18n="exp.webCourseText">Completed a comprehensive course covering HTML5, CSS3, JavaScript, Bootstrap, and
                                     jQuery on Udemy.
                                     The training focused on building modern, responsive websites with dynamic
                                     functionality and strong
-                                    front-end development skills.
+                                    front-end development skills.</span>
                                 </p>
-                                <a href="img/serti-html.pdf" target="_blank" class="btn btn-link">
-                                    <i class="fas fa-award"></i>
-                                    Click here to view the Certificate
+                                <a href="img/serti-html.pdf" target="_blank" class="nb-btn mb-3 mr-3 mt-5">
+                                    <i class="fa-solid fa-award"></i>
+                                    <span data-i18n="exp.certificate">Click here to view the Certificate</span>
                                 </a>
                             </div>
                         </div>
                         <!-- Belajar Dasar AI -->
-                        <div class="col-md-6">
-                            <div class="exp-col">
-                                <h3>Belajar Dasar Artificial Intelligence</h3>
-                                <h4>Dicoding Indonesia</h4>
-                                <h5>AI Fundamentals Course</h5>
-                                <p>
-                                    Completed the "Belajar Dasar Artificial Intelligence" course from Dicoding
+                        <div>
+                            <div class="nb-card h-full">
+                                <h3 class="text-xl font-bold uppercase leading-tight tracking-tight">Belajar Dasar Artificial Intelligence</h3>
+                                <h4 class="mt-2 font-mono text-xs uppercase tracking-[0.12em] text-steel">Dicoding Indonesia</h4>
+                                <h5 class="mt-3 text-sm font-semibold uppercase tracking-wide"><span data-i18n="exp.aiCourse">AI Fundamentals Course</span></h5>
+                                <p class="mt-4 text-sm leading-relaxed sm:text-base">
+                                    <span data-i18n="exp.aiCourseText">Completed the "Belajar Dasar Artificial Intelligence" course from Dicoding
                                     Indonesia.
                                     Learned the basic concepts of AI, including problem solving using search algorithms,
-                                    logic-based reasoning, and machine learning fundamentals.
+                                    logic-based reasoning, and machine learning fundamentals.</span>
                                 </p>
-                                <a href="img/serti-ai.pdf" target="_blank" class="btn btn-link">
-                                    <i class="fas fa-award"></i>
-                                    Click here to view the Certificate
+                                <a href="img/serti-ai.pdf" target="_blank" class="nb-btn mb-3 mr-3 mt-5">
+                                    <i class="fa-solid fa-award"></i>
+                                    <span data-i18n="exp.certificate">Click here to view the Certificate</span>
                                 </a>
                             </div>
                         </div>
 
                         <!-- Belajar Dasar Python -->
-                        <div class="col-md-6">
-                            <div class="exp-col">
-                                <h3>Belajar Dasar Pemrograman Python</h3>
-                                <h4>Dicoding Indonesia</h4>
-                                <h5>Python Programming Course</h5>
-                                <p>
-                                    Completed the "Belajar Dasar Pemrograman Python" course from Dicoding Indonesia.
+                        <div>
+                            <div class="nb-card h-full">
+                                <h3 class="text-xl font-bold uppercase leading-tight tracking-tight">Belajar Dasar Pemrograman Python</h3>
+                                <h4 class="mt-2 font-mono text-xs uppercase tracking-[0.12em] text-steel">Dicoding Indonesia</h4>
+                                <h5 class="mt-3 text-sm font-semibold uppercase tracking-wide"><span data-i18n="exp.pythonCourse">Python Programming Course</span></h5>
+                                <p class="mt-4 text-sm leading-relaxed sm:text-base">
+                                    <span data-i18n="exp.pythonCourseText">Completed the "Belajar Dasar Pemrograman Python" course from Dicoding Indonesia.
                                     Gained fundamental skills in Python programming, data types, functions, loops,
                                     object oriented programming,
-                                    and basic data structure manipulation.
+                                    and basic data structure manipulation.</span>
                                 </p>
-                                <a href="img/serti-python.pdf" target="_blank" class="btn btn-link">
-                                    <i class="fas fa-award"></i>
-                                    Click here to view the Certificate
+                                <a href="img/serti-python.pdf" target="_blank" class="nb-btn mb-3 mr-3 mt-5">
+                                    <i class="fa-solid fa-award"></i>
+                                    <span data-i18n="exp.certificate">Click here to view the Certificate</span>
                                 </a>
                             </div>
                         </div>
 
                         <!-- Belajar Dasar Machine Learning -->
-                        <div class="col-md-6">
-                            <div class="exp-col">
-                                <h3>Belajar Dasar Machine Learning</h3>
-                                <h4>Dicoding Indonesia</h4>
-                                <h5>Machine Learning Foundations Course</h5>
-                                <p>
-                                    Completed the "Belajar Dasar Machine Learning" course from Dicoding Indonesia.
+                        <div>
+                            <div class="nb-card h-full">
+                                <h3 class="text-xl font-bold uppercase leading-tight tracking-tight">Belajar Dasar Machine Learning</h3>
+                                <h4 class="mt-2 font-mono text-xs uppercase tracking-[0.12em] text-steel">Dicoding Indonesia</h4>
+                                <h5 class="mt-3 text-sm font-semibold uppercase tracking-wide"><span data-i18n="exp.mlCourse">Machine Learning Foundations Course</span></h5>
+                                <p class="mt-4 text-sm leading-relaxed sm:text-base">
+                                    <span data-i18n="exp.mlCourseText">Completed the "Belajar Dasar Machine Learning" course from Dicoding Indonesia.
                                     Learned key ML concepts such as supervised and unsupervised learning,
-                                    data preprocessing, model training, and evaluation using Python.
+                                    data preprocessing, model training, and evaluation using Python.</span>
                                 </p>
-                                <a href="img/serti-ml.pdf" target="_blank" class="btn btn-link">
-                                    <i class="fas fa-award"></i>
-                                    Click here to view the Certificate
+                                <a href="img/serti-ml.pdf" target="_blank" class="nb-btn mb-3 mr-3 mt-5">
+                                    <i class="fa-solid fa-award"></i>
+                                    <span data-i18n="exp.certificate">Click here to view the Certificate</span>
                                 </a>
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="exp-col">
-                                <h3>1st Place - KNU Global Mobility Project</h3>
-                                <h4>Kyungpook National University (KNU) and POLITEKNIK NEGERI JEMBER</h4>
-                                <h5>AI & IoT Developer</h5>
-                                <p>
-                                    Won 1st place in an international collaboration project with KNU students.
-                                    Developed an AI system for real-time fight and car crash detection, integrated with
-                                    CCTV, IoT devices, and a mobile
-                                    monitoring app.
+                        <div>
+                            <div class="nb-card h-full">
+                                <h3 class="text-xl font-bold uppercase leading-tight tracking-tight"><span data-i18n="exp.knuTitle">1st Place - AI Smart City (Fight &amp; Car Crash Detection)</span></h3>
+                                <h4 class="mt-2 font-mono text-xs uppercase tracking-[0.12em] text-steel">Politeknik Negeri Jember &times; Kyungpook National University (KNU)</h4>
+                                <h5 class="mt-3 text-sm font-semibold uppercase tracking-wide"><span data-i18n="exp.knuRole">Backend Developer - AI &amp; IoT</span></h5>
+                                <p class="mt-4 text-sm leading-relaxed sm:text-base">
+                                    <span data-i18n="exp.knuText">Won 1st place in an international collaboration with KNU students. Developed the
+                                    real-time backend processing for public-area monitoring using AI, deep learning,
+                                    and computer vision, then connected model inference to the web interface and mobile
+                                    app for early emergency alerts.</span>
                                 </p>
-                                <a href="img/serti-knu.pdf" target="_blank" class="btn btn-link">
-                                    <i class="fas fa-award"></i>
-                                    Click here to view the Certificate
+                                <a href="img/serti-knu.pdf" target="_blank" class="nb-btn mb-3 mr-3 mt-5">
+                                    <i class="fa-solid fa-award"></i>
+                                    <span data-i18n="exp.certificate">Click here to view the Certificate</span>
                                 </a>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="nb-card h-full">
+                                <h3 class="text-xl font-bold uppercase leading-tight tracking-tight">Peserta Terbaik (Valedictorian) - PIJAK 2026</h3>
+                                <h4 class="mt-2 font-mono text-xs uppercase tracking-[0.12em] text-steel">Dicoding Indonesia &times; IBM SkillsBuild</h4>
+                                <h5 class="mt-3 text-sm font-semibold uppercase tracking-wide"><span data-i18n="exp.achievement">Achievement</span></h5>
+                                <p class="mt-4 text-sm leading-relaxed sm:text-base">
+                                    <span data-i18n="exp.valeText">Recognized as the best participant (Valedictorian) of the PIJAK 2026 program, a
+                                    collaboration between Dicoding Indonesia and IBM SkillsBuild.</span>
+                                </p>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="nb-card h-full">
+                                <h3 class="text-xl font-bold uppercase leading-tight tracking-tight"><span data-i18n="exp.idcampTitle">IDCamp 2025 - AI Engineer Learning Path</span></h3>
+                                <h4 class="mt-2 font-mono text-xs uppercase tracking-[0.12em] text-steel">Indosat Ooredoo Hutchison &times; Dicoding Indonesia</h4>
+                                <h5 class="mt-3 text-sm font-semibold uppercase tracking-wide"><span data-i18n="exp.scholarship">Scholarship Program</span></h5>
+                                <p class="mt-4 text-sm leading-relaxed sm:text-base">
+                                    <span data-i18n="exp.idcampText">Selected as a participant in the IDCamp 2025 scholarship program and completed the
+                                    AI Engineer learning path.</span>
+                                </p>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="nb-card h-full">
+                                <h3 class="text-xl font-bold uppercase leading-tight tracking-tight"><span data-i18n="exp.arcadeTitle">Arcade Legend Tier - Google Cloud Arcade Facilitator Program 2026</span></h3>
+                                <h4 class="mt-2 font-mono text-xs uppercase tracking-[0.12em] text-steel">Google Cloud</h4>
+                                <h5 class="mt-3 text-sm font-semibold uppercase tracking-wide"><span data-i18n="exp.achievement">Achievement</span></h5>
+                                <p class="mt-4 text-sm leading-relaxed sm:text-base">
+                                    <span data-i18n="exp.arcadeText">Achieved Arcade Legend Tier in the Google Cloud Arcade Facilitator Program 2026.</span>
+                                </p>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <!-- Experience Start -->
+            </section>
+            <!-- Experience End -->
 
             <!-- Service Start -->
-            <div class="service" id="service">
-                <div class="content-inner">
-                    <div class="content-header">
-                        <h2>Service</h2>
-                    </div>
-                    <div class="row align-items-center">
-                        <div class="col-md-6">
-                            <div class="srv-col">
-                                <i class="fa fa-desktop"></i>
-                                <h3>AI Engineering</h3>
-                                <p>Design and implement intelligent systems powered by machine learning and deep
-                                    learning to solve real-world problems.</p>
+            <section class="nb-section" id="service">
+                <div class="nb-container">
+                    <p class="nb-kicker text-steel"><span data-i18n="svc.kicker">04 / What I Do</span></p>
+                    <h2 class="nb-title mt-4"><span data-i18n="svc.title">Service</span></h2>
+                    <div class="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                        <div>
+                            <div class="nb-card h-full">
+                                <i class="fa-solid fa-desktop mb-6 block text-3xl"></i>
+                                <h3 class="text-lg font-bold uppercase leading-tight tracking-tight"><span data-i18n="svc.ai">AI Engineering</span></h3>
+                                <p class="mt-4 text-sm leading-relaxed"><span data-i18n="svc.aiText">Design and implement intelligent systems powered by machine learning and deep
+                                    learning to solve real-world problems.</span></p>
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="srv-col">
-                                <i class="fa fa-mobile-alt"></i>
-                                <h3>Mobile App Android Developer</h3>
-                                <p>Develop intuitive and high-performing Android apps with seamless integration, modern
+                        <div>
+                            <div class="nb-card h-full">
+                                <i class="fa-solid fa-mobile-screen-button mb-6 block text-3xl"></i>
+                                <h3 class="text-lg font-bold uppercase leading-tight tracking-tight"><span data-i18n="svc.mobile">Mobile App Android Developer</span></h3>
+                                <p class="mt-4 text-sm leading-relaxed"><span data-i18n="svc.mobileText">Develop intuitive and high-performing Android apps with seamless integration, modern
                                     UI/UX, and optimized
-                                    mobile experience.</p>
+                                    mobile experience.</span></p>
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="srv-col">
-                                <i class="fa fa-code"></i>
-                                <h3>Full Stack Web Developer</h3>
-                                <p>Deliver complete web solutions handling both front-end and back-end, ensuring fast
+                        <div>
+                            <div class="nb-card h-full">
+                                <i class="fa-solid fa-code mb-6 block text-3xl"></i>
+                                <h3 class="text-lg font-bold uppercase leading-tight tracking-tight"><span data-i18n="exp.fullStackWeb">Full Stack Web Developer</span></h3>
+                                <p class="mt-4 text-sm leading-relaxed"><span data-i18n="svc.webText">Deliver complete web solutions handling both front-end and back-end, ensuring fast
                                     performance and dynamic
-                                    functionality.</p>
+                                    functionality.</span></p>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <!-- Service Start -->
+            </section>
+            <!-- Service End -->
 
             <!-- Portfolio Start -->
-            <div class="portfolio" id="portfolio">
-                <div class="content-inner">
-                    <div class="content-header">
-                        <h2>Portfolio</h2>
+            <section class="nb-section nb-section-dark" id="portfolio">
+                <div class="nb-container">
+                    <p class="nb-kicker text-steel"><span data-i18n="pf.kicker">05 / Selected Work</span></p>
+                    <h2 class="nb-title mt-4"><span data-i18n="pf.title">Portfolio</span></h2>
+
+                    <div class="mt-10 flex flex-wrap gap-3" id="portfolioFilters">
+                        <button type="button" class="filter-btn nb-chip cursor-pointer" data-filter="all"
+                            aria-pressed="true"><span data-i18n="pf.all">All</span></button>
+                        <button type="button" class="filter-btn nb-chip cursor-pointer" data-filter="web-des"
+                            aria-pressed="false"><span data-i18n="pf.design">Design</span></button>
+                        <button type="button" class="filter-btn nb-chip cursor-pointer" data-filter="web-dev"
+                            aria-pressed="false"><span data-i18n="pf.website">Website</span></button>
+                        <button type="button" class="filter-btn nb-chip cursor-pointer" data-filter="mob-dev"
+                            aria-pressed="false"><span data-i18n="pf.mobile">Mobile App</span></button>
                     </div>
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <ul id="portfolio-flters">
-                                <li data-filter="*" class="filter-active">All</li>
-                                <li data-filter=".web-des">Design</li>
-                                <li data-filter=".web-dev">Website</li>
-                                <li data-filter=".mob-dev">Mobile App</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="row portfolio-container">
-                        <div class="col-lg-4 col-md-6 portfolio-item web-des">
-                            <div class="portfolio-wrap">
-                                <figure>
-                                    <img src="img/sss1.png" class="img-fluid" alt="">
-                                    <a href="img/sss1.png" data-lightbox="nganjuk visit desain"
-                                        data-title="Nganjuk Visit Design" class="link-preview" title="Preview"><i
-                                            class="fa fa-eye"></i></a>
+
+                    <div class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3" id="portfolioGrid">
+                        <article class="portfolio-item nb-card p-0" data-category="web-des">
+                            <div class="relative aspect-[4/3] overflow-hidden border-b-2 border-current">
+                                <img src="img/sss1.png" alt="Nganjuk Visit Design" class="h-full w-full object-cover">
+                                <div class="absolute right-3 top-3 flex gap-2">
+                                    <button type="button" class="nb-icon-btn bg-ink" aria-label="Preview" data-i18n-aria="pf.preview"
+                                        data-preview="img/sss1.png" data-title="Nganjuk Visit Design"
+                                        data-gallery="img/sss1.png"><i class="fa-solid fa-eye"></i></button>
                                     <a href="https://www.figma.com/design/OpDDvV6G7LyBKsDr3W4Qkr/Web-Nganjuk-Visit?node-id=0-1&t=le3szyaavdcGRdwY-1"
-                                        target="_blank" class="link-details" title="More Details"><i
-                                            class="fa fa-link"></i></a>
-                                    <a class="portfolio-title" target="_blank"
-                                        href="https://www.figma.com/design/OpDDvV6G7LyBKsDr3W4Qkr/Web-Nganjuk-Visit?node-id=0-1&t=le3szyaavdcGRdwY-1">Nganjuk
-                                        Visit<span>Web
-                                            Design</span></a>
-                                </figure>
+                                        target="_blank" aria-label="More details" data-i18n-aria="pf.details" class="nb-icon-btn bg-ink"><i
+                                            class="fa-solid fa-link"></i></a>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 portfolio-item web-dev">
-                            <div class="portfolio-wrap">
-                                <figure>
-                                    <!-- Gambar utama di grid -->
-                                    <img src="img/sss2.png" class="img-fluid" alt="Nganjuk Visit Web">
+                            <div class="flex items-center justify-between gap-4 p-5">
+                                <div>
+                                    <h3 class="text-lg font-bold uppercase tracking-tight">Nganjuk Visit</h3>
+                                    <p class="mt-1 font-mono text-[11px] uppercase tracking-widest text-steel"><span data-i18n="pf.webDesign">Web
+                                        Design</span></p>
+                                </div>
+                                <a href="https://www.figma.com/design/OpDDvV6G7LyBKsDr3W4Qkr/Web-Nganjuk-Visit?node-id=0-1&t=le3szyaavdcGRdwY-1"
+                                    target="_blank" aria-label="Open project" data-i18n-aria="pf.open" class="nb-icon-btn"><i
+                                        class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                            </div>
+                        </article>
 
-                                    <!-- Gambar utama untuk preview -->
-                                    <a href="img/sss2.png" class="link-preview" data-lightbox="nganjuk-visit-web"
-                                        data-title="Nganjuk Visit Web - Tampilan 1" title="Preview">
-                                        <i class="fa fa-eye"></i>
-                                    </a>
-
-                                    <a href="img/logvisit.png" data-lightbox="nganjuk-visit-web"
-                                        data-title="Nganjuk Visit Web - Tampilan 2" style="display:none;"></a>
-
-                                    <a href="img/dasvisit.png" data-lightbox="nganjuk-visit-web"
-                                        data-title="Nganjuk Visit Web - Tampilan 3" style="display:none;"></a>
-
-                                    <!-- Link ke project -->
+                        <article class="portfolio-item nb-card p-0" data-category="web-dev">
+                            <div class="relative aspect-[4/3] overflow-hidden border-b-2 border-current">
+                                <img src="img/sss2.png" alt="Nganjuk Visit Web" class="h-full w-full object-cover">
+                                <div class="absolute right-3 top-3 flex gap-2">
+                                    <button type="button" class="nb-icon-btn bg-ink" aria-label="Preview" data-i18n-aria="pf.preview"
+                                        data-preview="img/sss2.png" data-title="Nganjuk Visit Web"
+                                        data-gallery="img/sss2.png|img/logvisit.png|img/dasvisit.png"><i
+                                            class="fa-solid fa-eye"></i></button>
                                     <a href="https://nganjukvisit.pbltifnganjuk.com/" target="_blank"
-                                        class="link-details" title="More Details"><i class="fa fa-link"></i></a>
-
-                                    <a class="portfolio-title" target="_blank"
-                                        href="https://nganjukvisit.pbltifnganjuk.com/">Nganjuk Visit
-                                        <span>Web Development</span></a>
-                                </figure>
+                                        aria-label="More details" data-i18n-aria="pf.details" class="nb-icon-btn bg-ink"><i
+                                            class="fa-solid fa-link"></i></a>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 portfolio-item web-dev">
-                            <div class="portfolio-wrap">
-                                <figure>
-                                    <img src="img/sss3.png" class="img-fluid" alt="Nganjuk Mase Web">
+                            <div class="flex items-center justify-between gap-4 p-5">
+                                <div>
+                                    <h3 class="text-lg font-bold uppercase tracking-tight">Nganjuk Visit</h3>
+                                    <p class="mt-1 font-mono text-[11px] uppercase tracking-widest text-steel"><span data-i18n="pf.webDev">Web
+                                        Development</span></p>
+                                </div>
+                                <a href="https://nganjukvisit.pbltifnganjuk.com/" target="_blank"
+                                    aria-label="Open project" data-i18n-aria="pf.open" class="nb-icon-btn"><i
+                                        class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                            </div>
+                        </article>
 
-                                    <a href="img/sss3.png" class="link-preview" data-lightbox="nganjuk-mase-web"
-                                        data-title="Nganjuk Mase Web - Tampilan 1" title="Preview">
-                                        <i class="fa fa-eye"></i>
-                                    </a>
-
-                                    <a href="img/logmase.png" data-lightbox="nganjuk-mase-web"
-                                        data-title="Nganjuk Mase Web - Tampilan 2" style="display:none;"></a>
-
-                                    <a href="img/dasmase.png" data-lightbox="nganjuk-mase-web"
-                                        data-title="Nganjuk Mase Web - Tampilan 3" style="display:none;"></a>
-
+                        <article class="portfolio-item nb-card p-0" data-category="web-dev">
+                            <div class="relative aspect-[4/3] overflow-hidden border-b-2 border-current">
+                                <img src="img/sss3.png" alt="Nganjuk Mase Web" class="h-full w-full object-cover">
+                                <div class="absolute right-3 top-3 flex gap-2">
+                                    <button type="button" class="nb-icon-btn bg-ink" aria-label="Preview" data-i18n-aria="pf.preview"
+                                        data-preview="img/sss3.png" data-title="Nganjuk Mase Web"
+                                        data-gallery="img/sss3.png|img/logmase.png|img/dasmase.png"><i
+                                            class="fa-solid fa-eye"></i></button>
                                     <a href="https://nganjukmase.pbltifnganjuk.com/" target="_blank"
-                                        class="link-details" title="More Details"><i class="fa fa-link"></i></a>
-
-                                    <a class="portfolio-title" target="_blank"
-                                        href="https://nganjukmase.pbltifnganjuk.com/">Nganjuk Mase
-                                        <span>Web Development</span></a>
-                                </figure>
+                                        aria-label="More details" data-i18n-aria="pf.details" class="nb-icon-btn bg-ink"><i
+                                            class="fa-solid fa-link"></i></a>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 portfolio-item mob-dev">
-                            <div class="portfolio-wrap">
-                                <figure>
-                                    <img src="img/premob1.jpg" class="img-fluid" alt="Nganjuk Mase Mobile App">
+                            <div class="flex items-center justify-between gap-4 p-5">
+                                <div>
+                                    <h3 class="text-lg font-bold uppercase tracking-tight">Nganjuk Mase</h3>
+                                    <p class="mt-1 font-mono text-[11px] uppercase tracking-widest text-steel"><span data-i18n="pf.webDev">Web
+                                        Development</span></p>
+                                </div>
+                                <a href="https://nganjukmase.pbltifnganjuk.com/" target="_blank"
+                                    aria-label="Open project" data-i18n-aria="pf.open" class="nb-icon-btn"><i
+                                        class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                            </div>
+                        </article>
 
-                                    <a href="img/premob1.jpg" class="link-preview" data-lightbox="nganjuk-mase-mobile"
-                                        data-title="Nganjuk Mase Mobile App - Screen 1" title="Preview">
-                                        <i class="fa fa-eye"></i>
-                                    </a>
-
-                                    <a href="img/premob2.jpg" data-lightbox="nganjuk-mase-mobile"
-                                        data-title="Nganjuk Mase Mobile App - Screen 2" style="display:none;"></a>
-
+                        <article class="portfolio-item nb-card p-0" data-category="mob-dev">
+                            <div class="relative aspect-[4/3] overflow-hidden border-b-2 border-current">
+                                <img src="img/premob1.jpg" alt="Nganjuk Mase Mobile App"
+                                    class="h-full w-full object-cover">
+                                <div class="absolute right-3 top-3 flex gap-2">
+                                    <button type="button" class="nb-icon-btn bg-ink" aria-label="Preview" data-i18n-aria="pf.preview"
+                                        data-preview="img/premob1.jpg" data-title="Nganjuk Mase Mobile App"
+                                        data-gallery="img/premob1.jpg|img/premob2.jpg"><i
+                                            class="fa-solid fa-eye"></i></button>
                                     <a href="https://nganjukmase.pbltifnganjuk.com/up/apk/NganjukMase.apk"
-                                        class="link-details" title="More Details"><i class="fa fa-link"></i></a>
-
-                                    <a class="portfolio-title"
-                                        href="https://nganjukmase.pbltifnganjuk.com/up/apk/NganjukMase.apk">Nganjuk Mase
-                                        <span>Mobile Development</span></a>
-                                </figure>
+                                        target="_blank" aria-label="More details" data-i18n-aria="pf.details" class="nb-icon-btn bg-ink"><i
+                                            class="fa-solid fa-link"></i></a>
+                                </div>
                             </div>
-                        </div>
+                            <div class="flex items-center justify-between gap-4 p-5">
+                                <div>
+                                    <h3 class="text-lg font-bold uppercase tracking-tight">Nganjuk Mase</h3>
+                                    <p class="mt-1 font-mono text-[11px] uppercase tracking-widest text-steel"><span data-i18n="pf.mobDev">Mobile
+                                        Development</span></p>
+                                </div>
+                                <a href="https://nganjukmase.pbltifnganjuk.com/up/apk/NganjukMase.apk" target="_blank"
+                                    aria-label="Open project" data-i18n-aria="pf.open" class="nb-icon-btn"><i
+                                        class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                            </div>
+                        </article>
 
-                        <div class="col-lg-4 col-md-6 portfolio-item mob-dev">
-                            <div class="portfolio-wrap">
-                                <figure>
-                                    <img src="img/premango1.jpeg" class="img-fluid" alt="Mango Sort Mobile App">
-
-                                    <a href="img/premango1.jpeg" class="link-preview" data-lightbox="mango-sort-mobile"
-                                        data-title="Mango Sort Mobile App - Screen 1" title="Preview">
-                                        <i class="fa fa-eye"></i>
-                                    </a>
-
-                                    <a href="img/premango2.jpeg" data-lightbox="mango-sort-mobile"
-                                        data-title="Mango Sort Mobile App - Screen 2" style="display:none;"></a>
-
+                        <article class="portfolio-item nb-card p-0" data-category="mob-dev">
+                            <div class="relative aspect-[4/3] overflow-hidden border-b-2 border-current">
+                                <img src="img/premango1.jpeg" alt="Mango Sort Mobile App"
+                                    class="h-full w-full object-cover">
+                                <div class="absolute right-3 top-3 flex gap-2">
+                                    <button type="button" class="nb-icon-btn bg-ink" aria-label="Preview" data-i18n-aria="pf.preview"
+                                        data-preview="img/premango1.jpeg" data-title="Mango Sort Mobile App"
+                                        data-gallery="img/premango1.jpeg|img/premango2.jpeg"><i
+                                            class="fa-solid fa-eye"></i></button>
                                     <a href="https://github.com/hajuenter/mango_quality_app/releases/download/v1.0.0/mango-sort-v1.apk"
-                                        class="link-details" title="More Details"><i class="fa fa-link"></i></a>
-
-                                    <a class="portfolio-title"
-                                        href="https://github.com/hajuenter/mango_quality_app/releases/download/v1.0.0/mango-sort-v1.apk">Mango
-                                        Sort
-                                        <span>Mobile Development</span></a>
-                                </figure>
+                                        target="_blank" aria-label="More details" data-i18n-aria="pf.details" class="nb-icon-btn bg-ink"><i
+                                            class="fa-solid fa-link"></i></a>
+                                </div>
                             </div>
-                        </div>
+                            <div class="flex items-center justify-between gap-4 p-5">
+                                <div>
+                                    <h3 class="text-lg font-bold uppercase tracking-tight">Mango Sort</h3>
+                                    <p class="mt-1 font-mono text-[11px] uppercase tracking-widest text-steel"><span data-i18n="pf.mobDev">Mobile
+                                        Development</span></p>
+                                </div>
+                                <a href="https://github.com/hajuenter/mango_quality_app/releases/download/v1.0.0/mango-sort-v1.apk"
+                                    target="_blank" aria-label="Open project" data-i18n-aria="pf.open" class="nb-icon-btn"><i
+                                        class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                            </div>
+                        </article>
 
-                        <div class="col-lg-4 col-md-6 portfolio-item mob-dev">
-                            <div class="portfolio-wrap">
-                                <figure>
-                                    <img src="img/premob3.jpg" class="img-fluid" alt="Nganjuk Visit Mobile App">
-
-                                    <a href="img/premob3.jpg" class="link-preview" data-lightbox="nganjuk-visit-mobile"
-                                        data-title="Nganjuk Visit Mobile App - Screen 1" title="Preview">
-                                        <i class="fa fa-eye"></i>
-                                    </a>
-
-                                    <a href="img/premob4.jpg" data-lightbox="nganjuk-visit-mobile"
-                                        data-title="Nganjuk Visit Mobile App - Screen 2" style="display:none;"></a>
-
+                        <article class="portfolio-item nb-card p-0" data-category="mob-dev">
+                            <div class="relative aspect-[4/3] overflow-hidden border-b-2 border-current">
+                                <img src="img/premob3.jpg" alt="Nganjuk Visit Mobile App"
+                                    class="h-full w-full object-cover">
+                                <div class="absolute right-3 top-3 flex gap-2">
+                                    <button type="button" class="nb-icon-btn bg-ink" aria-label="Preview" data-i18n-aria="pf.preview"
+                                        data-preview="img/premob3.jpg" data-title="Nganjuk Visit Mobile App"
+                                        data-gallery="img/premob3.jpg|img/premob4.jpg"><i
+                                            class="fa-solid fa-eye"></i></button>
                                     <a href="https://nganjukvisit.pbltifnganjuk.com/download/NganjukVisit.apk"
-                                        class="link-details" title="More Details"><i class="fa fa-link"></i></a>
-
-                                    <a class="portfolio-title"
-                                        href="https://nganjukvisit.pbltifnganjuk.com/download/NganjukVisit.apk">Nganjuk
-                                        Visit
-                                        <span>Mobile Development</span></a>
-                                </figure>
+                                        target="_blank" aria-label="More details" data-i18n-aria="pf.details" class="nb-icon-btn bg-ink"><i
+                                            class="fa-solid fa-link"></i></a>
+                                </div>
                             </div>
-                        </div>
+                            <div class="flex items-center justify-between gap-4 p-5">
+                                <div>
+                                    <h3 class="text-lg font-bold uppercase tracking-tight">Nganjuk Visit</h3>
+                                    <p class="mt-1 font-mono text-[11px] uppercase tracking-widest text-steel"><span data-i18n="pf.mobDev">Mobile
+                                        Development</span></p>
+                                </div>
+                                <a href="https://nganjukvisit.pbltifnganjuk.com/download/NganjukVisit.apk"
+                                    target="_blank" aria-label="Open project" data-i18n-aria="pf.open" class="nb-icon-btn"><i
+                                        class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                            </div>
+                        </article>
                     </div>
                 </div>
-            </div>
-            <!-- Portfolio Start -->
-
+            </section>
+            <!-- Portfolio End -->
             <!-- Review Start -->
-            <div class="review" id="review">
-                <div class="content-inner">
-                    <div class="content-header">
-                        <h2>Review</h2>
+            <section class="nb-section" id="review">
+                <div class="nb-container">
+                    <div class="flex flex-wrap items-end justify-between gap-6">
+                        <div>
+                            <p class="nb-kicker text-steel"><span data-i18n="rv.kicker">06 / Partners</span></p>
+                            <h2 class="nb-title mt-4"><span data-i18n="rv.title">Review</span></h2>
+                        </div>
+                        <div class="flex gap-3">
+                            <button type="button" id="reviewPrev" aria-label="Previous review" data-i18n-aria="rv.prev"
+                                class="nb-icon-btn"><i class="fa-solid fa-arrow-left"></i></button>
+                            <button type="button" id="reviewNext" aria-label="Next review" data-i18n-aria="rv.next"
+                                class="nb-icon-btn"><i class="fa-solid fa-arrow-right"></i></button>
+                        </div>
                     </div>
-                    <div class="row align-items-center review-slider">
-                        <div class="col-md-12">
-                            <div class="review-slider-item">
-                                <div class="review-text">
-                                    <p>
-                                        We greatly appreciate the development of the Nganjuk Visit website and mobile
-                                        application. Both platforms feature a
-                                        modern design, seamless user experience, and reliable performance. The
-                                        integration of tourism information, culinary
-                                        highlights, event schedules, and online ticket booking has been instrumental in
-                                        promoting Nganjuk Regency. The
-                                        entire collaboration was smooth, efficient, and highly professional.
-                                    </p>
-                                </div>
-                                <div class="review-img">
-                                    <img src="img/pre2.jpg" alt="Image">
-                                    <div class="review-name">
-                                        <h3>Tourism Office of Nganjuk Regency</h3>
-                                        <p>Government Partner</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-12">
-                            <div class="review-slider-item">
-                                <div class="review-text">
-                                    <p>
-                                        The Nganjuk Mase website has proven to be a valuable tool for the Housing,
-                                        Settlement, and Land Department. The
-                                        platform enables efficient data management for the uninhabitable house
-                                        assistance program (CPB), allowing citizens
-                                        to register and update verification details easily. The website is clean,
-                                        responsive, and greatly supports
-                                        government service delivery in a digital and structured format.
-                                    </p>
-                                </div>
-                                <div class="review-img">
-                                    <img src="img/pre3.jpg" alt="Image">
-                                    <div class="review-name">
-                                        <h3>Housing, Settlement, and Land Department of Nganjuk Regency</h3>
-                                        <p>Government Partner</p>
-                                    </div>
+
+                    <div id="reviewTrack" class="mt-10 flex snap-x snap-mandatory gap-6 overflow-x-auto pb-4">
+                        <article class="nb-card w-full shrink-0 snap-center">
+                            <span class="nb-chip">01 / 04</span>
+                            <p class="mt-6 text-base leading-relaxed sm:text-lg">
+                                <span data-i18n="rv.text1">We greatly appreciate the development of the Nganjuk Visit website and mobile
+                                application. Both platforms feature a modern design, seamless user experience, and
+                                reliable performance. The integration of tourism information, culinary highlights,
+                                event schedules, and online ticket booking has been instrumental in promoting Nganjuk
+                                Regency. The entire collaboration was smooth, efficient, and highly professional.</span>
+                            </p>
+                            <div class="mt-8 flex items-center gap-4 border-t-2 border-ink pt-5">
+                                <img src="img/pre2.jpg" alt="Tourism Office of Nganjuk Regency"
+                                    class="h-14 w-14 border-2 border-ink object-cover">
+                                <div>
+                                    <h3 class="text-sm font-bold uppercase leading-tight"><span data-i18n="rv.partner1">Tourism Office of Nganjuk
+                                        Regency</span></h3>
+                                    <p class="mt-1 font-mono text-[11px] uppercase tracking-widest text-steel">
+                                        <span data-i18n="rv.gov">Government Partner</span></p>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-md-12">
-                            <div class="review-slider-item">
-                                <div class="review-text">
-                                    <p>
-                                        The Smart City Project, a collaboration between Indonesian and KNU students,
-                                        developed an AI and IoT-based system capable of detecting fights and car crashes
-                                        through CCTV integration.
-                                        The solution aimed to support public safety monitoring and emergency response in
-                                        urban environments.
-                                        The collaboration showcased strong innovation, teamwork, and real-world
-                                        application of smart surveillance technology.
-                                    </p>
-                                </div>
-                                <div class="review-img">
-                                    <img src="img/pre4.jpg" alt="Image">
-                                    <div class="review-name">
-                                        <h3>Smart City Project</h3>
-                                        <p>POLIJE and Kyungpook National University Collaboration</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-12">
-                            <div class="review-slider-item">
-                                <div class="review-text">
-                                    <p>
-                                        The cashier desktop application built for Vivace Music has streamlined daily
-                                        transactions and inventory tracking
-                                        significantly. This solution supports stock management, customer handling, and
-                                        report generation, tailored
-                                        specifically for small-scale music instrument businesses. Its user-friendly
-                                        interface and fast performance have
-                                        helped Vivace Music operate more efficiently and focus on growing their customer
-                                        base.
-                                    </p>
-                                </div>
-                                <div class="review-img">
-                                    <img src="img/pre1.jpg" alt="Image">
-                                    <div class="review-name">
-                                        <h3>Vivace Music</h3>
-                                        <p>UMKM Partner - Music Instrument Sales</p>
-                                    </div>
+                        </article>
+
+                        <article class="nb-card w-full shrink-0 snap-center">
+                            <span class="nb-chip">02 / 04</span>
+                            <p class="mt-6 text-base leading-relaxed sm:text-lg">
+                                <span data-i18n="rv.text2">The Nganjuk Mase website has proven to be a valuable tool for the Housing, Settlement,
+                                and Land Department. The platform enables efficient data management for the
+                                uninhabitable house assistance program (CPB), allowing citizens to register and update
+                                verification details easily. The website is clean, responsive, and greatly supports
+                                government service delivery in a digital and structured format.</span>
+                            </p>
+                            <div class="mt-8 flex items-center gap-4 border-t-2 border-ink pt-5">
+                                <img src="img/pre3.jpg"
+                                    alt="Housing, Settlement, and Land Department of Nganjuk Regency"
+                                    class="h-14 w-14 border-2 border-ink object-cover">
+                                <div>
+                                    <h3 class="text-sm font-bold uppercase leading-tight"><span data-i18n="rv.partner2">Housing, Settlement, and Land
+                                        Department of Nganjuk Regency</span></h3>
+                                    <p class="mt-1 font-mono text-[11px] uppercase tracking-widest text-steel">
+                                        <span data-i18n="rv.gov">Government Partner</span></p>
                                 </div>
                             </div>
-                        </div>
+                        </article>
+
+                        <article class="nb-card w-full shrink-0 snap-center">
+                            <span class="nb-chip">03 / 04</span>
+                            <p class="mt-6 text-base leading-relaxed sm:text-lg">
+                                <span data-i18n="rv.text3">The Smart City Project, a collaboration between Indonesian and KNU students, developed
+                                an AI and IoT-based system capable of detecting fights and car crashes through CCTV
+                                integration. The solution aimed to support public safety monitoring and emergency
+                                response in urban environments. The collaboration showcased strong innovation,
+                                teamwork, and real-world application of smart surveillance technology.</span>
+                            </p>
+                            <div class="mt-8 flex items-center gap-4 border-t-2 border-ink pt-5">
+                                <img src="img/pre4.jpg" alt="Smart City Project"
+                                    class="h-14 w-14 border-2 border-ink object-cover">
+                                <div>
+                                    <h3 class="text-sm font-bold uppercase leading-tight">Smart City Project</h3>
+                                    <p class="mt-1 font-mono text-[11px] uppercase tracking-widest text-steel"><span data-i18n="rv.partner2sub">POLIJE
+                                        and Kyungpook National University Collaboration</span></p>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="nb-card w-full shrink-0 snap-center">
+                            <span class="nb-chip">04 / 04</span>
+                            <p class="mt-6 text-base leading-relaxed sm:text-lg">
+                                <span data-i18n="rv.text4">The cashier desktop application built for Vivace Music has streamlined daily
+                                transactions and inventory tracking significantly. This solution supports stock
+                                management, customer handling, and report generation, tailored specifically for
+                                small-scale music instrument businesses. Its user-friendly interface and fast
+                                performance have helped Vivace Music operate more efficiently and focus on growing
+                                their customer base.</span>
+                            </p>
+                            <div class="mt-8 flex items-center gap-4 border-t-2 border-ink pt-5">
+                                <img src="img/pre1.jpg" alt="Vivace Music"
+                                    class="h-14 w-14 border-2 border-ink object-cover">
+                                <div>
+                                    <h3 class="text-sm font-bold uppercase leading-tight">Vivace Music</h3>
+                                    <p class="mt-1 font-mono text-[11px] uppercase tracking-widest text-steel"><span data-i18n="rv.partner4sub">UMKM
+                                        Partner - Music Instrument Sales</span></p>
+                                </div>
+                            </div>
+                        </article>
                     </div>
                 </div>
-            </div>
+            </section>
             <!-- Review End -->
-
             <!-- Contact Start -->
-            <div class="contact" id="contact">
-                <div class="content-inner">
-                    <div class="content-header">
-                        <h2>Contact</h2>
-                    </div>
-                    <div class="row align-items-center">
-                        <div class="col-md-6">
-                            <div class="contact-info">
-                                <p><i class="fa fa-user"></i>ACH. BAHRUL MA'ARIP</p>
-                                <p><i class="fa fa-tag"></i>Programmer</p>
-                                <p><i class="fa fa-envelope"></i><a href="mailto:bahrulahmad1945@gmail.com"
-                                        target="_blank">bahrulahmad1945@gmail.com</a>
-                                </p>
-                                <p><i class="fa fa-map-marker"></i>Kab. Nganjuk, Jawa Timur, Indonesia
-                                </p>
-                                <div class="social">
-                                    <a class="btn" target="_blank" href="https://x.com/shusui_songolas"><i
-                                            class="fab fa-twitter"></i></a>
-                                    <a class="btn" target="_blank"
-                                        href="https://web.facebook.com/people/Ach-Bahrul/pfbid0kiycxSA5eJ676oedDRVayoz6BWVnFkfkDKEdjeaDYk2Jur2FWDFy1Z63QKjAyUqVl/"><i
-                                            class="fab fa-facebook-f"></i></a>
-                                    <a class="btn" target="_blank"
-                                        href="https://www.linkedin.com/in/ach-bahrul-ma-arip-a1a14b313/"><i
-                                            class="fab fa-linkedin-in"></i></a>
-                                    <a class="btn" target="_blank" href="https://www.instagram.com/shusui_songolas"><i
-                                            class="fab fa-instagram"></i></a>
-                                    <a class="btn" target="_blank" href="https://www.youtube.com/@HajuenterOfficial"><i
-                                            class="fab fa-youtube"></i></a>
+            <section class="nb-section nb-section-dark" id="contact">
+                <div class="nb-container">
+                    <p class="nb-kicker text-steel"><span data-i18n="ct.kicker">07 / Get In Touch</span></p>
+                    <h2 class="nb-title mt-4"><span data-i18n="ct.title">Contact</span></h2>
+
+                    <div class="mt-12 grid gap-10 lg:grid-cols-2">
+                        <div>
+                            <div class="nb-card h-full">
+                                <div class="space-y-5 font-mono text-xs uppercase tracking-[0.12em] sm:text-sm">
+                                    <p class="flex items-start gap-3"><i class="fa-solid fa-user mt-1 w-5"></i><span>ACH.
+                                            BAHRUL MA'ARIP</span></p>
+                                    <p class="flex items-start gap-3"><i class="fa-solid fa-tag mt-1 w-5"></i><span><span data-i18n="ct.role">AI,
+                                            Data Science &amp; Full-Stack Developer</span></span></p>
+                                    <p class="flex items-start gap-3 break-all"><i
+                                            class="fa-solid fa-envelope mt-1 w-5"></i><a class="underline decoration-2 underline-offset-4"
+                                            href="mailto:esjeruk517@gmail.com">esjeruk517@gmail.com</a></p>
+                                    <p class="flex items-start gap-3"><i
+                                            class="fa-solid fa-phone mt-1 w-5"></i><span>+62 896 9708 2930</span></p>
+                                    <p class="flex items-start gap-3"><i
+                                            class="fa-solid fa-location-dot mt-1 w-5"></i><span>Kab. Nganjuk, Jawa
+                                            Timur, Indonesia</span></p>
+                                </div>
+                                <div class="mt-8 flex flex-wrap gap-3 border-t-2 border-current pt-6">
+                                    <a href="https://x.com/shusui_songolas" target="_blank" aria-label="Twitter"
+                                        class="nb-icon-btn"><i class="fa-brands fa-twitter"></i></a>
+                                    <a href="https://web.facebook.com/people/Ach-Bahrul/pfbid0kiycxSA5eJ676oedDRVayoz6BWVnFkfkDKEdjeaDYk2Jur2FWDFy1Z63QKjAyUqVl/"
+                                        target="_blank" aria-label="Facebook" class="nb-icon-btn"><i
+                                            class="fa-brands fa-facebook-f"></i></a>
+                                    <a href="https://www.linkedin.com/in/ach-bahrul-ma-arip-a1a14b313/"
+                                        target="_blank" aria-label="LinkedIn" class="nb-icon-btn"><i
+                                            class="fa-brands fa-linkedin-in"></i></a>
+                                    <a href="https://www.instagram.com/shusui_songolas" target="_blank"
+                                        aria-label="Instagram" class="nb-icon-btn"><i
+                                            class="fa-brands fa-instagram"></i></a>
+                                    <a href="https://www.youtube.com/@HajuenterOfficial" target="_blank"
+                                        aria-label="YouTube" class="nb-icon-btn"><i
+                                            class="fa-brands fa-youtube"></i></a>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <div id="success-alert" class="alert alert-warning" style="display: none;">
-                                Pesan Anda berhasil dikirim! Terima kasih telah menghubungi kami.
-                            </div>
-                            <div class="form">
-                                <form name="submit-to-google-sheet">
-                                    <div class="form-row">
-                                        <div class="form-group col-md-6">
-                                            <input required type="text" name="name" class="form-control"
-                                                placeholder="Your Name" />
-                                        </div>
-                                        <div class="form-group col-md-6">
-                                            <input required type="email" name="email" class="form-control"
-                                                placeholder="Your Email" />
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <input required type="text" name="subjek" class="form-control"
-                                            placeholder="Subject" />
-                                    </div>
-                                    <div class="form-group">
-                                        <textarea required class="form-control" name="pesan" rows="5"
-                                            placeholder="Message"></textarea>
-                                    </div>
-                                    <div><button class="btn" id="submit-btn" type="submit">Send Message</button></div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Contact End -->
 
-            <!-- Footer Start -->
-            <div class="footer">
-                <div class="content-inner">
-                    <div class="row align-items-center">
-                        <div class="col-md-6">
-                            <p>&copy; Copyright <a>2025</a>. All
-                                Rights Reserved</p>
-                        </div>
-                        <div class="col-md-6">
-                            <p>Powered by <a target="_blank" href="https://github.com/hajuenter">Hajuenter</a></p>
+                        <div>
+                            <div id="success-alert" class="nb-alert mb-6 hidden" role="status">
+                                <span data-i18n="ct.success">Pesan Anda berhasil dikirim! Terima kasih telah menghubungi kami.</span>
+                            </div>
+                            <form name="submit-to-google-sheet" class="nb-card space-y-5">
+                                <div class="grid gap-5 sm:grid-cols-2">
+                                    <label class="block">
+                                        <span class="nb-kicker mb-2 block"><span data-i18n="ct.name">Your Name</span></span>
+                                        <input required type="text" name="name" class="nb-input"
+                                            placeholder="Your Name" data-i18n-placeholder="ct.namePlaceholder" />
+                                    </label>
+                                    <label class="block">
+                                        <span class="nb-kicker mb-2 block"><span data-i18n="ct.email">Your Email</span></span>
+                                        <input required type="email" name="email" class="nb-input"
+                                            placeholder="Your Email" data-i18n-placeholder="ct.emailPlaceholder" />
+                                    </label>
+                                </div>
+                                <label class="block">
+                                    <span class="nb-kicker mb-2 block"><span data-i18n="ct.subject">Subject</span></span>
+                                    <input required type="text" name="subjek" class="nb-input" placeholder="Subject" data-i18n-placeholder="ct.subjectPlaceholder" />
+                                </label>
+                                <label class="block">
+                                    <span class="nb-kicker mb-2 block"><span data-i18n="ct.message">Message</span></span>
+                                    <textarea required class="nb-input" name="pesan" rows="5"
+                                        placeholder="Message" data-i18n-placeholder="ct.messagePlaceholder"></textarea>
+                                </label>
+                                <button class="nb-btn nb-btn-solid" id="submit-btn" type="submit"><span data-i18n="ct.send">Send Message</span></button>
+                            </form>
                         </div>
                     </div>
                 </div>
-            </div>
+            </section>
+            <!-- Contact End -->
             <!-- Footer Start -->
-        </div>
+            <footer class="nb-section nb-section-dark border-b-0">
+                <div class="nb-container flex flex-wrap items-center justify-between gap-4 font-mono text-[11px] uppercase tracking-[0.12em] text-steel">
+                    <p><span data-i18n="ft.copy">&copy; Copyright</span> <span class="text-paper">2026</span>. <span data-i18n="ft.rights">All Rights Reserved</span></p>
+                    <p><span data-i18n="ft.powered">Powered by</span> <a class="text-paper underline decoration-2 underline-offset-4" target="_blank"
+                            href="https://github.com/hajuenter">Hajuenter</a></p>
+                </div>
+            </footer>
+            <!-- Footer End -->
+        </main>
     </div>
 
-    <!-- Back to Top -->
-    <a href="#" class="back-to-top"><i class="fa fa-angle-double-up"></i></a>
+    <!-- Project image lightbox -->
+    <dialog id="lightbox" class="nb-lightbox">
+        <div class="mb-3 flex items-center justify-between gap-4">
+            <p id="lightboxTitle" class="font-mono text-xs uppercase tracking-[0.12em]"></p>
+            <button type="button" id="lightboxClose" class="nb-icon-btn" aria-label="Close preview" data-i18n-aria="ui.close"><i
+                    class="fa-solid fa-xmark"></i></button>
+        </div>
+        <img id="lightboxImage" alt="Project preview">
+        <div class="mt-4 flex items-center justify-between gap-4 font-mono text-xs uppercase">
+            <button type="button" id="lightboxPrev" class="nb-btn"><i class="fa-solid fa-arrow-left"></i> <span data-i18n="ui.prev">Prev</span></button>
+            <span id="lightboxCounter"></span>
+            <button type="button" id="lightboxNext" class="nb-btn"><span data-i18n="ui.next">Next</span> <i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+    </dialog>
 
-    <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/slick/slick.min.js"></script>
-    <script src="lib/typed/typed.min.js"></script>
-    <script src="lib/waypoints/waypoints.min.js"></script>
-    <script src="lib/isotope/isotope.pkgd.min.js"></script>
-    <script src="lib/lightbox/js/lightbox.min.js"></script>
+    <a href="#header" id="backToTop" class="nb-icon-btn fixed bottom-6 right-6 z-40 hidden bg-paper text-ink"
+        aria-label="Back to top" data-i18n-aria="ui.top"><i class="fa-solid fa-arrow-up"></i></a>
 
-    <!-- Template Javascript -->
+    <script src="js/theme.js"></script>
+    <script src="js/i18n.js"></script>
     <script src="js/main.js"></script>
-    <script>
-        const scriptURL =
-            'https://script.google.com/macros/s/AKfycbzyx0iiteD0JVguM-v_-ru2oqYRUjKlH3X-X0kjY-uIbhkIopHxNE_X_f7MZ-0VNrgx/exec'
-        const form = document.forms['submit-to-google-sheet']
-        const successAlert = document.getElementById('success-alert')
-        const submitButton = document.getElementById('submit-btn')
-
-        form.addEventListener('submit', e => {
-            e.preventDefault()
-
-            // Nonaktifkan tombol saat mengirim untuk mencegah pengiriman ganda
-            submitButton.disabled = true
-            submitButton.innerText = 'Mengirim...'
-
-            fetch(scriptURL, { method: 'POST', body: new FormData(form) })
-                .then(response => {
-                    console.log('Success!', response)
-
-                    // Tampilkan alert sukses
-                    successAlert.style.display = 'block'
-
-                    // Reset formulir
-                    form.reset()
-
-                    // Aktifkan kembali tombol submit
-                    submitButton.disabled = false
-                    submitButton.innerText = 'Send Message'
-
-                    // Sembunyikan alert setelah 5 detik
-                    setTimeout(() => {
-                        successAlert.style.display = 'none'
-                    }, 5000)
-                })
-                .catch(error => {
-                    console.error('Error!', error.message)
-
-                    // Jika terjadi error, aktifkan kembali tombol submit
-                    submitButton.disabled = false
-                    submitButton.innerText = 'Send Message'
-
-                    // Opsional: Tambahkan alert error
-                    alert('Terjadi kesalahan saat mengirim pesan. Silakan coba lagi.')
-                })
-        })
-    </script>
+    <script src="js/contact-form.js"></script>
 </body>
 
 </html>
