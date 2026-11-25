@@ -29,8 +29,28 @@ body {
   color: #ffffff;
 }
 
+/* Offset anchor disamakan untuk semua menu sidebar dan tombol Hire Me.
+   Mobile butuh ruang untuk header fixed; desktop tidak ada header atas. */
 section[id] {
+  /* 48px + padding-top 40px = 88px, cukup untuk header fixed di mobile. */
+  scroll-margin-top: 48px;
+}
+
+@media (min-width: 1024px) {
+  section[id] {
+    scroll-margin-top: 0;
+  }
+}
+
+/* Hero punya offset tersendiri agar tidak ikut bergeser saat Home diklik. */
+#header {
   scroll-margin-top: 88px;
+}
+
+@media (min-width: 1024px) {
+  #header {
+    scroll-margin-top: 0;
+  }
 }
 
 .nb-container {
@@ -47,13 +67,15 @@ section[id] {
 }
 
 .nb-section {
-  padding-block: 4.5rem;
+  padding-top: 2.5rem;
+  padding-bottom: 4.5rem;
   border-bottom: 2px solid currentColor;
 }
 
 @media (min-width: 768px) {
   .nb-section {
-    padding-block: 6rem;
+    padding-top: 3rem;
+    padding-bottom: 6rem;
   }
 }
 

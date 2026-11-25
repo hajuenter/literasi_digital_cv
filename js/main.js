@@ -33,6 +33,55 @@
     });
   }
 
+  /* ---------- Anchor scroll tanpa menambahkan hash ke URL ---------- */
+  const cleanUrl = function () {
+    return window.location.pathname + window.location.search;
+  };
+
+  function scrollToHash(hash) {
+    const target = hash ? document.querySelector(hash) : null;
+    const margin = target ? parseFloat(window.getComputedStyle(target).scrollMarginTop) || 0 : 0;
+    const top = target ? target.getBoundingClientRect().top + window.scrollY - margin : 0;
+    window.scrollTo({ top: Math.max(0, top), behavior: "smooth" });
+  }
+
+  function pushAnchorState(hash) {
+    if (!window.history || !window.history.pushState) return;
+    try {
+      window.history.pushState({ anchor: hash }, "", cleanUrl());
+    } catch (_) {
+      // Diabaikan jika pushState tidak didukung (mis. file://).
+    }
+  }
+
+  if (window.location.hash && window.history && window.history.replaceState) {
+    try {
+      window.history.replaceState({ anchor: window.location.hash }, "", cleanUrl());
+    } catch (_) {
+      // Diabaikan jika replaceState tidak didukung (mis. file://).
+    }
+  }
+
+  window.addEventListener("popstate", function (event) {
+    scrollToHash(event.state && event.state.anchor ? event.state.anchor : null);
+  });
+
+  const anchorLinks = Array.from(document.querySelectorAll('a[href^="#"]')).filter(function (link) {
+    const hash = link.getAttribute("href");
+    return link.id !== "backToTop" && hash !== "#" && Boolean(document.querySelector(hash));
+  });
+
+  anchorLinks.forEach(function (link) {
+    link.addEventListener("click", function (event) {
+      const hash = link.getAttribute("href");
+      if (!document.querySelector(hash)) return;
+
+      event.preventDefault();
+      scrollToHash(hash);
+      pushAnchorState(hash);
+    });
+  });
+
   /* ---------- Active section in navbar ---------- */
   const sections = navLinks
     .map(function (link) {
@@ -209,7 +258,8 @@
     );
     backToTop.addEventListener("click", function (event) {
       event.preventDefault();
-      window.scrollTo({ top: 0, behavior: "smooth" });
+      scrollToHash(null);
+      pushAnchorState("");
     });
   }
 })();
