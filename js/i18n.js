@@ -36,8 +36,8 @@
     "id": "Tersedia untuk kolaborasi"
   },
   "hero.kicker": {
-    "en": "— AI, Data Science & Full-Stack Developer",
-    "id": "— AI, Data Science & Pengembang Full-Stack"
+    "en": "— AI & Full-Stack Developer",
+    "id": "— AI & Pengembang Full-Stack"
   },
   "hero.im": {
     "en": "I'm a",
@@ -56,8 +56,8 @@
     "id": "Tentang Saya"
   },
   "about.bio": {
-    "en": "I am a D4 Informatics Engineering student at Politeknik Negeri Jember (PSDKU Kabupaten Nganjuk) and a Dicoding alumni, recognized as the Valedictorian (best participant) of the PIJAK 2026 program in collaboration with IBM SkillsBuild. I focus on Artificial Intelligence, Data Science, and Full-Stack Web Development, with experience building government web and mobile information systems, REST APIs for machine learning and computer vision models, and data processing pipelines. I am also used to working in cross-cultural teams, writing technical documentation, and mentoring peers.",
-    "id": "Saya adalah mahasiswa Teknik Informatika D4 di Politeknik Negeri Jember (PSDKU Kabupaten Nganjuk) dan alumni Dicoding yang dinobatkan sebagai Peserta Terbaik (Valedictorian) program PIJAK 2026 bersama IBM SkillsBuild. Saya fokus pada Kecerdasan Buatan, Data Science, dan Pengembangan Web Full-Stack, dengan pengalaman membangun sistem informasi web dan mobile untuk pemerintah, REST API untuk model machine learning dan computer vision, serta pipeline pemrosesan data. Saya juga terbiasa bekerja dalam tim lintas budaya, menulis dokumentasi teknis, dan membimbing rekan."
+    "en": "I am a D4 Informatics Engineering student at Politeknik Negeri Jember (PSDKU Kabupaten Nganjuk) and a Dicoding alumni, recognized as the Valedictorian (best participant) of the PIJAK 2026 program in collaboration with IBM SkillsBuild. I focus on Artificial Intelligence and Full-Stack Web Development, with experience building government web and mobile information systems, REST APIs for machine learning and computer vision models, and data processing pipelines. I am also used to working in cross-cultural teams, writing technical documentation, and mentoring peers.",
+    "id": "Saya adalah mahasiswa Teknik Informatika D4 di Politeknik Negeri Jember (PSDKU Kabupaten Nganjuk) dan alumni Dicoding yang dinobatkan sebagai Peserta Terbaik (Valedictorian) program PIJAK 2026 bersama IBM SkillsBuild. Saya fokus pada Kecerdasan Buatan dan Pengembangan Web Full-Stack, dengan pengalaman membangun sistem informasi web dan mobile untuk pemerintah, REST API untuk model machine learning dan computer vision, serta pipeline pemrosesan data. Saya juga terbiasa bekerja dalam tim lintas budaya, menulis dokumentasi teknis, dan membimbing rekan."
   },
   "about.soft": {
     "en": "Mentoring & technical communication, problem solving, critical thinking, teamwork, and time management.",
@@ -436,8 +436,8 @@
     "id": "Kontak"
   },
   "ct.role": {
-    "en": "AI, Data Science & Full-Stack Developer",
-    "id": "AI, Data Science & Pengembang Full-Stack"
+    "en": "AI & Full-Stack Developer",
+    "id": "AI & Pengembang Full-Stack"
   },
   "ct.success": {
     "en": "Your message has been sent! Thank you for contacting me.",
@@ -493,8 +493,8 @@
     "attr": "aria-label"
   },
   "hero.roles": {
-    "en": "Web Developer, Mobile Developer, AI Engineer, Data Scientist",
-    "id": "Pengembang Web, Pengembang Mobile, Insinyur AI, Ilmuwan Data",
+    "en": "Web Developer, Mobile Developer, AI Engineer",
+    "id": "Pengembang Web, Pengembang Mobile, Insinyur AI",
     "attr": "data-typed"
   },
   "pf.preview": {
@@ -566,8 +566,8 @@
 
   var TITLES = { en: "BAHRUL | PORTFOLIO", id: "BAHRUL | PORTOFOLIO" };
   var META = {
-    en: "Portfolio of Ach. Bahrul Ma'arip - AI, Data Science & Full-Stack Developer",
-    id: "Portofolio Ach. Bahrul Ma'arip - AI, Data Science & Pengembang Full-Stack"
+    en: "Portfolio of Ach. Bahrul Ma'arip - AI & Full-Stack Developer",
+    id: "Portofolio Ach. Bahrul Ma'arip - AI & Pengembang Full-Stack"
   };
   var STORAGE_KEY = "bahrul-portfolio-lang";
 
